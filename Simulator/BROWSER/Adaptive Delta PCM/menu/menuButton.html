@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SIMULATOR</title>
+        <link rel="stylesheet" href="menuButton.css">
+        <link rel="stylesheet" href="icons/all.min.css">
+        <link rel="stylesheet" href="icons/fontawesome.min.css">
+        <script src="jquery-3.6.0.js"></script>
+    </head>
+    <body>
+
+        <!-- MENU BAR -->
+        
+        <div id="container2">
+            <div class="menu">
+                <label for="btn" class="button">MENU
+                    <span class="fas fa-caret-down"></span>
+                </label>
+                <input type="checkbox" id="btn" class="firstInput">
+                <ul class="ClickMenu">
+                    <li><a href="#">Home</a></li>
+                    <li>
+                        <label for="btn-2" class="first">Simulators
+                            <span class="fas fa-caret-down"></span>
+                        </label>
+                        <input type="checkbox" id="btn-2" class="butt">
+                        <ul>
+                            <li><a href="#">Character Coding</a></li>
+                            <li>
+                                <label for="btn-3" class="second">Pulse Code <span class="fas fa-caret-down"></span>Modulation
+                                    
+                                </label>
+                                <input type="checkbox" id="btn-3" class="butt2">
+
+                                <!-- sub sub category pcm -->
+                                <ul class="subCat">
+                                    <li><a href="#">Basic PCM</a></li>
+                                    <li><a href="#">PCM with Analog Companding</a></li>
+                                    <li><a href="#">PCM with Digital Companding</a></li>
+                                    <li><a href="#">Delta PCM</a></li>
+                                    <li><a href="#">Adaptive PCM</a></li>
+                                    <li><a href="#">Differential PCM</a></li>
+                                </ul>
+                                
+                            </li>
+
+                            <li><a href="#">Line Encoding</a></li>
+                            <li>
+                                <label for="btn-4" class="third">Digital<span class="fas fa-caret-down"></span>Modulation
+                                    
+                                </label>
+                                <input type="checkbox" id="btn-4" class="butt3">
+
+                                <!-- sub sub category pcm -->
+                                <ul class="DigMod">
+                                    <li><a href="#">Amplitude Shift Keying(ASK)</a></li>
+                                    <li><a href="#">Frequency Shift Keying(FSK)</a></li>
+                                    <li><a href="#">Phase Shift Keying(PSK)</a></li>
+                                </ul>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </div>
+        </div>
+
+          <!-- This code used to add animation and function to drop icon.. -->
+        <script>
+
+            $(document).ready(function(){
+                   $('#btn').click(function(){
+                       $(":not(#btn)").prop("checked",false,$('#btn').is(':checked'))
+                       $('div .button span').toggleClass("rotate");
+
+                       if($(".butt").prop("checked",false,$(".butt").is(":checked"))){
+                            $("div ul li span").removeClass("rotate");
+                       }
+                   });
+   
+                   $('.butt').click(function(){
+                       $(":not(.butt,#btn)").prop("checked",false,$('.butt').is(':checked'))
+                       $('div ul li .first span').toggleClass("rotate");
+
+                       if($(".butt2").prop("checked",false,$(".butt2").is(":checked"))){
+                           $(".second span").removeClass("rotate");
+                       }
+                       if($(".butt3").prop("checked",false,$(".butt3").is(":checked"))) {
+                           $(".third span").removeClass("rotate");
+                       }
+                   });
+   
+                   $(".butt2").click(function(){
+                       $(".butt3").prop("checked",false,$(".butt3").is(":checked"))
+                       $('.second span').toggleClass("rotate");
+   
+                       if($(".butt3").prop("checked",false,$(".butt3").is(":checked"))){
+                           $('.third span').removeClass("rotate");
+                       }
+                   })
+   
+                   $(".butt3").click(function(){
+                       $(".butt2").prop("checked",false,$(".butt2").is(":checked"))
+                       $('.third span').toggleClass("rotate");
+   
+                       if($(".butt2").prop("checked",false,$(".butt2").is(":checked"))){
+                           $('.second span').removeClass("rotate");
+                       }
+                   })
+            });
+           </script>
+
+    </body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="FSK/FSK.css">
+    <link rel="stylesheet" href="menu/menuButton.css">
+    <link rel="shortcut icon" type="x-icon" href="menu/CaMTS.png">
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="menu/jquery-3.6.0.js"></script>
+    <script src="menu/button.js"></script>
+    <link rel="stylesheet" href="menu/seesaw_digiMod.css">
+    <img src="FSK/loading/loader.gif" class="loader">
+    <img src="FSK/loading/Main Logo CaMTS Logo.gif" class="camtes">
+
+    <title>FREQUENCY SHIFT KEYING</title>
+    <script>
+        $(".camtes").css("display", "flex" );
+      $(document).ready(function(){
+        $(".camtes").delay(1000); // simulate loading time
+                  $(".camtes").fadeOut();
+      });
+    </script>
+
+<!-- For TAB Style -->
+<div class="tabContainer">
+    <div class="buttonContainer">
+        <button id="topButton" onclick="showPanel(0,'#56242D')">Overview</button>
+        <button id="topButton" onclick="showPanel(1,'#BD7584')">Simulator</button>
+
+        <div id="container2">
+            <div class="menu">
+                <label for="btn" class="button">MENU
+                    <span class="fas fa-caret-down"></span>
+                </label>
+                    <input type="checkbox" id="btn" class="firstInput">
+                
+                    <ul class="ClickMenu">
+                        <li><a href="../mainFlexPage.html">Home</a></li>
+                        <li>
+                            <label for="btn-2" class="first">Simulators
+                                <span class="fas fa-caret-down"></span>
+                            </label>
+                                <input type="checkbox" id="btn-2" class="butt">
+                            
+                            <ul>
+                                <li><a href="characterCoding.html">Character Coding</a></li>
+                                <li>
+                                    <label for="btn-3" class="second">Pulse Code <span class="fas fa-caret-down"></span>Modulation  
+                                    </label>
+                                        <input type="checkbox" id="btn-3" class="butt2">
+    
+                                    <!-- sub sub category pcm -->
+                                    <ul class="subCat">
+                                        <a href="BasicPCM.html"><li>Basic PCM</li></a>
+                                        <a href="analogCompanding.html"><li>PCM with Analog Companding</li></a>
+                                        <a href="digitalCompanding.html"><li>PCM with Digital Companding</li></a>
+                                        <a href="deltaPCM.html"><li>Delta PCM</li></a>
+                                        <a href="adaptiveDelta.html"><li>Adaptive PCM</li></a>
+                                        <a href="differentialPCM.html"> <li>Differential PCM</li></a>
+                                    </ul>
+                                </li>
+    
+                                <li><a href="lineCoding.html">Line Coding</a></li>
+                                <li>
+                                    <label for="btn-4" class="third">Digital<span class="fas fa-caret-down"></span>Modulation    
+                                    </label>
+                                        <input type="checkbox" id="btn-4" class="butt3">
+    
+                                    <!-- sub sub category pcm -->
+                                    <ul class="DigMod">
+                                        <li><a href="ask.html">Amplitude Shift Keying(ASK)</a></li>
+                                        <li><a href="FSK.html">Frequency Shift Keying(FSK)</a></li>
+                                        <li><a href="BPSK.html">Binary Phase Shift Keying(BPSK)</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+    
+                        <li><a href="../../CaMTeS.html">About</a></li>
+                    </ul>
+    
+            </div> <!-- END of menu -->
+        </div> <!-- END of container2  -->
+    </div> <!-- END of TAB Style -->
+
+    
+    <!-- For OVERVIEW TAB -->
+    <div class="tabPanel">
+        <div id="container1">  <!-- START OF GRID -->
+                <div class="top1">Frequency Shift Keying <sub>(FSK)</sub></div>
+                <div class="footer">	 <p style="position: relative;
+                    top: 2.3vh;">&copy; 2022 Saint Louis University. All rights reserved</p>
+                <div class="left">Found a bug <i class="fa-solid fa-bug"></i>?</div> </div> 
+
+                <div class="diagram">
+                    <input type="checkbox" name="" id="checkBox" class="check_box" id="checkbox1" onclick="checkBoxVal()">
+                    <div class="diagram_2">
+                        <img src="FSK/diagram/FSK.jpg" alt="FSK jpg" style="display: none;">
+                        <img src="FSK/diagram/FSK.gif" alt="FSK gif">
+                    </div>
+                </div> <!--END of diagram -->
+
+                <div class="cont">
+                    <h1 id="subTitle">Overview</h1>
+                    <p id="contP">The voltage-controlled oscillator (VCO) generates a carrier with constant amplitude and phase in FSK modulation. The VCO's frequency of output depends on the amplitude of the input PNRZ signal. The result of the modulator is an FSK signal. The FSK signal is received in the demodulator and proceeds in two directions. Both paths have a bandpass filter that passes or rejects a signal at a specific frequency, either frequency mark or frequency space. The bandpass filtered signal will undergo an envelope detector. It employs rectification and low pass filtering to detect the envelope of the signal. The comparator subtracts the two input signals from the envelope detectors. Based on the sample, the 1-bit ADC outputs the bitstream.
+
+
+                    </p>
+                </div> <!-- END of cont -->
+
+        </div> <!-- END of Grid -->
+    </div> <!-- END of Tab 1 -->       
+    
+    
+
+  <!-- For SIMULATOR TAB -->
+  <div class="tabPanel">
+    <div id="container">  <!-- START OF GRID -->
+            <div class="top">Frequency Shift Keying</div>
+            <div class="none"></div>
+            <div class="footer">	 <p style="position: relative;
+                top: 2.3vh;">&copy; 2022 Saint Louis University. All rights reserved</p>
+            <div class="left">Found a bug <i class="fa-solid fa-bug"></i>?</div> </div> 
+                
+            
+    <div id="userDefined">
+        <!-- FOR USER INPUTS -->
+        <h3 id="inputParam">SIGNAL PARAMETERS</h3>
+        <div class="colorDivParam">
+            <div class="dropDown1">
+                <label for="Pre-defined Bits" id="preDefBits2">Pre-defined Bits</label><br>
+                    <select name="enableDisable" id="enableDisable">
+                        <option value="Disable">Disable </option>
+                        <option value="Enable">Enable</option>
+                    </select><br>
+                
+                    <!-- Appear if enabled -->
+                    <div id="showBitParams">
+                        <select name="preDefBits" id="preDefBits">
+                            <option value="Random Bits">Random Bits</option>
+                            <option value="Alternate Bits (01)">Alternate Bits (10)</option>
+                            <option value="Alternate Bits (10)">Alternate Bits (01)</option>
+                            <option value="All Ones">All Ones</option>
+                            <option value="All Zeros">All Zeros</option>
+                        </select><br>
+
+                    <label for="numBits" id="numBits2">Number of Bits:</label><br>
+                        <input type="number" name="numBits" id="numBits"><br>
+                   
+                        <button id="generateBits" onclick="generateBits()">GENERATE</button><br>
+            </div>  <!-- END dropDown1 -->
+
+                    </div> <!-- END of showBitParams -->
+
+
+            <label for="binaryInput">Bitstream: </label>
+                <input id="binaryInput" type="text" value="101010101" oninput="this.value = this.value.replace(/[^0-1]/g, '').replace(/(\..*)\./g, '$1');"><br><br><br>
+            <label for="frequencyMark">Freq. Mark: </label>
+                <input id="frequencyMark" type="text" value="2000" oninput="this.value = this.value.replace(/[^0-9.-]/g, '').replace(/(\..*)\./g, '$1');"><br>
+            <label for="frequencySpace">Freq. Space: </label>
+                <input id="frequencySpace" type="text" value="1000" oninput="this.value = this.value.replace(/[^0-9.-]/g, '').replace(/(\..*)\./g, '$1');"><br>
+            <label for="bitrateInput">Bit rate: </label>
+                <input id="bitrateInput" type="text" value ="450" oninput="this.value = this.value.replace(/[^0-9.-]/g, '').replace(/(\..*)\./g, '$1');"><br>
+            <label for="amplitude">Amplitude: </label>
+                <input id="amplitude" type="text" value ="5" oninput="this.value = this.value.replace(/[^0-9.-]/g, '').replace(/(\..*)\./g, '$1');"><br>
+            <label for="fmin">fmin: </label>
+                <input id="fmin" type="text" value ="0" oninput="this.value = this.value.replace(/[^0-9.-]/g, '').replace(/(\..*)\./g, '$1');"><br>
+            <label for="fmax">fmax: </label>
+                <input id="fmax" type="text" value ="4000" oninput="this.value = this.value.replace(/[^0-9.-]/g, '').replace(/(\..*)\./g, '$1');"><br>
+
+        </div>  <!-- END of colorDivParam -->   
+        
+            <!--LOADING SCREEN-->
+            <button id="execute" onclick="simulate()"> SIMULATE </button><br><br>
+
+    </div>  <!-- END userDefined --> 
+
+
+    <!-- FOR CUSTOM ELEMENTS -->
+    <div class="colorChange">
+        <h3 id="elementColors">CUSTOM ELEMENTS</h3>
+
+        <!-- FOR MODULATING -->
+        <div id="insideColor">
+        <p id="customTitle">Modulating Signal</p>
+            <label id="elemCol"> Signal: </label>
+                <input type="color" id="modulatingSig" onchange="simulateOnChange()">
+            <label id="elemCol">Width: </label>
+                <input type="number" id="modulatingSigThicc" value="3" onchange="simulateOnChange()"><br>
+        </div> <!-- END insideColor -->                    
+
+        <!-- FOR CARRIER -->
+        <div id="insideColor">
+        <p id="customTitle">Carrier Signal</p>
+            <label id="elemCol">Mark: </label>
+                <input type="color" id="carrierSigMark" onchange="simulateOnChange()">
+            <label id="elemCol">Width: </label>
+                <input type="number" id="carrierSigThiccMark" value="3" onchange="simulateOnChange()"><br>
+            <label id="elemCol">Space: </label>
+                <input type="color" id="carrierSigSpace" onchange="simulateOnChange()">
+            <label id="elemCol">Width: </label>
+                <input type="number" id="carrierSigThiccSpace" value="3" onchange="simulateOnChange()"><br>
+        </div> <!-- END insideColor -->                    
+
+
+        <div id="insideColor">
+        <p id="customTitle">Modulated Signal</p>
+            <label id="elemCol">Signal: </label>
+                <input type="color" id="TXsig" value="#FF1414" onchange="simulateOnChange()">
+            <label id="elemCol">Width: </label>
+                <input type="number" id="TXsigThicc"  value="3" onchange="simulateOnChange()"><br>
+        </div> <!-- END insideColor -->                    
+              
+        
+        <div id="insideColor">                                   
+        <p id="customTitle">Frequency Domain</p>
+            <label id="elemCol">Signal: </label>
+                <input type="color" id="TXmag" value="#FF1414" onchange="simulateOnChange()">
+            <label id="elemCol">Width: </label>
+                <input type="number" id="TXmagThicc" value="3" onchange="simulateOnChange()"><br>
+        </div> <!-- END insideColor1 --> 
+            
+
+        <div id="insideColor2"> 
+            <p id="customTitle">Band Pass Filter</p>
+            <div id="window">
+                <select name="VIEWS" id="view" class="windowView"><br>
+                    <option value="Single Window">Single Window</option>
+                    <option value="Two Windows">Two Windows</option>
+                </select><br>
+            </div>   <!-- END FOR  WINDOW OPTIONS --> 
+
+           
+                <label id="elemCol">Signal 1: </label>
+                    <input type="color" id="BPF1" value="#FF1414" onchange="simulateOnChange()" >
+                <label id="elemCol">Width 1: </label>
+                    <input type="number" id="BPF1Thicc" value="3" onchange="simulateOnChange()"><br>
+                <label id="elemCol">Signal 2: </label>
+                    <input type="color" id="BPF2" value="#000000" onchange="simulateOnChange()" >
+                <label id="elemCol">Width 2: </label>
+                    <input type="number" id="BPF2Thicc" value="3" onchange="simulateOnChange()"><br>
+        </div> <!-- END insideColor2 --> 
+             
+
+        <div id="insideColor3"> 
+            <p id="customTitle">Envelope Detector</p>
+            <div id="window_2">
+                <select name="VIEWS" id="view_2" class="windowView"><br>
+                    <option value="Single Window">Single Window</option>
+                    <option value="Two Windows">Two Windows</option>
+                </select><br>
+            </div>   <!-- END FOR  WINDOW OPTIONS -->
+
+           
+                <label id="elemCol">Signal 1: </label>
+                    <input type="color" id="ED1" value="#FF1414" onchange="simulateOnChange()" >
+                <label id="elemCol">Width 1: </label>
+                    <input type="number" id="ED1Thicc" value="3" onchange="simulateOnChange()"><br>
+                <label id="elemCol">Signal 2: </label>
+                    <input type="color" id="ED2" value="#000000" onchange="simulateOnChange()">
+                <label id="elemCol">Width 2: </label>
+                    <input type="number" id="ED2Thicc" value="3" onchange="simulateOnChange()"><br>
+        </div> <!-- END insideColor3 --> 
+                  
+
+        <div id="insideColor"> 
+            <p id="customTitle">Demodulated Signal</p>
+                <label id="elemCol"> Signal: </label>
+                    <input type="color" id="demSig" onchange="simulateOnChange()" >
+                <label id="elemCol">Width: </label>
+                    <input type="number" id="demSigThicc" value="3" onchange="simulateOnChange()"><br>
+        </div> <!-- END insideColor4 --> 
+
+
+        <div id="insideColor5"> 
+            <label id="elemCol">Background: </label>
+                <input type="color" id="bgColor" value="#c2acb2" onchange="simulateOnChange()"><br>
+            <label id="elemCol">Grid: </label>
+                <input type="color" id="gridColor" value="#FFFFFF" onchange="simulateOnChange()"><br>
+        </div> <!-- END insideColor5 --> 
+
+    </div> <!-- END colorChange -->
+
+
+    <div class="plots"> 
+        <div id="myPlotModulating"></div>
+        <div id="myPlotCarrier"></div>
+        <div id="myPlotTimeDom" ></div>
+        <div id="myPlotFreqDom"></div>
+        <div id="myPlotBandPass"></div>
+        <div id="myPlotEnvelopeDetector"></div>
+        <div id="myPlotFilteredEnvelope"></div>
+    </div> <!-- END plotly -->
+
+
+    <script src="Libs/Channel Coding Libs/generateBits.js"></script>
+    <script src="Libs/Channel Coding Libs/math.js"></script>
+    <script src="Libs/Channel Coding Libs/fili.min.js"></script>
+    <script src="Libs/Channel Coding Libs/bundleIIR.js"></script>
+    <script src="Libs/Main Libs/jquery-3.6.0.min.js"></script>
+    <script src="Libs/Main Libs/plotly-latest.min.js"></script>
+    <script src="FSK/libs/dtft_FSK_final.js"></script>
+    <script src="FSK/FSK_REVISED_2.js"></script>
+
+    <script>
+                       $("#showBitParams").hide();
+        $("#enableDisable").on("change", function(){
+            if($("#enableDisable").val() == "Enable"){
+            console.log($("#enableDisable").val())
+                $("#showBitParams").slideDown();
+            }
+                    
+            else if($("#enableDisable").val() == "Disable"){
+            console.log($("#enableDisable").val())
+                $("#showBitParams").slideUp();
+            }
+            })
+    </script>
+                 <script>
+                    let checkCounter = 0;
+                                 function checkBoxVal(){
+                                     console.log($("#checkBox").val());
+                                     if($("#checkBox").val() === "on" && checkCounter === 0){
+                                         checkCounter = 1;
+                                        //  FOR JPG
+                                         $(".diagram_2").html('<img src="FSK/diagram/FSK.jpg" />')
+                                         
+                                         console.log(checkCounter);
+                                     }
+                                     else{
+                                         checkCounter = 0;
+                                        //  FOR GIF
+                                         $(".diagram_2").html('<img  src="FSK/diagram/FSK.gif" />')
+             
+                                         console.log(checkCounter)
+                                     }
+                                 }
+                     </script>
+
+<script>
+
+    $(document).ready(function(){
+           $('#btn').click(function(){
+               $(":not(#btn)").prop("checked",false,$('#btn').is(':checked'))
+               $('div .button span').toggleClass("rotate");
+
+               if($(".butt").prop("checked",false,$(".butt").is(":checked"))){
+                    $("div ul li span").removeClass("rotate");
+               }
+           });
+
+           $('.butt').click(function(){
+               $(":not(.butt,#btn)").prop("checked",false,$('.butt').is(':checked'))
+               $('div ul li .first span').toggleClass("rotate");
+
+               if($(".butt2").prop("checked",false,$(".butt2").is(":checked"))){
+                   $(".second span").removeClass("rotate");
+               }
+               if($(".butt3").prop("checked",false,$(".butt3").is(":checked"))) {
+                   $(".third span").removeClass("rotate");
+               }
+           });
+
+           $(".butt2").click(function(){
+               $(".butt3").prop("checked",false,$(".butt3").is(":checked"))
+               $('.second span').toggleClass("rotate");
+
+               if($(".butt3").prop("checked",false,$(".butt3").is(":checked"))){
+                   $('.third span').removeClass("rotate");
+               }
+           })
+
+           $(".butt3").click(function(){
+               $(".butt2").prop("checked",false,$(".butt2").is(":checked"))
+               $('.third span').toggleClass("rotate");
+
+               if($(".butt2").prop("checked",false,$(".butt2").is(":checked"))){
+                   $('.second span').removeClass("rotate");
+               }
+           })
+    });
+   </script>
+   
+</head>
+<body>
+
+</body>
+</html>

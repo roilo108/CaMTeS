@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CaMTeS</title>
+        <link rel="stylesheet" href="BROWSER/mainPage/mainFlexPage.css">
+        <link rel="stylesheet" href="BROWSER/menu/menuButton.css">
+        <script src="BROWSER/mainPage/icons.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <link rel="shortcut icon" type="x-icon" href="BROWSER/menu/CaMTS.png">
+    </head>
+    <body>
+
+        <div class="container-I">
+                <!-- navigation bar --->
+            <div class="navContainer">
+                <img src="BROWSER/mainPage/images/logo.gif">
+
+                <!-- MENU BAR -->
+        
+        <div id="container">
+            <div class="menu">
+                <label for="btn" class="button">Menu
+                    <span class="fas fa-caret-down"></span>
+                </label>
+                <input type="checkbox" id="btn">
+                <ul class="ClickMenu">
+                    <li><a href="mainFlexPage.html">Home</a></li>
+                    <li>
+                        <label for="btn-2" class="first">Simulators
+                            <span class="fas fa-caret-down"></span>
+                        </label>
+                        <input type="checkbox" id="btn-2" class="butt">
+                        <ul>
+                            <a href="BROWSER/characterCoding.html"><li>Character Coding</li></a>
+                            <li>
+                                <label for="btn-3" class="second">Pulse Code <span class="fas fa-caret-down"></span>Modulation
+                                    
+                                </label>
+                                <input type="checkbox" id="btn-3" class="butt2">
+
+                                <!-- sub sub category pcm -->
+                                <ul class="subCat">
+                                    <a href="BROWSER/BasicPCM.html"><li>Basic PCM</li></a>
+                                    <a href="BROWSER/analogCompanding.html"><li>PCM with Analog Companding</li></a>
+                                    <a href="BROWSER/digitalCompanding.html"><li>PCM with Digital Companding</li></a>
+                                    <a href="BROWSER/deltaPCM.html"><li>Delta PCM</li></a>
+                                    <a href="BROWSER/adaptiveDelta.html"><li>Adaptive PCM</li></a>
+                                    <a href="BROWSER/differentialPCM.html"><li>Differential PCM</li></a>
+                                </ul>
+                                
+                            </li>
+
+                            <a href="BROWSER/lineCoding.html"><li>Line Encoding</li></a>
+                            <li>
+                                <label for="btn-4" class="third">Digital<span class="fas fa-caret-down"></span>Modulation
+                                    
+                                </label>
+                                <input type="checkbox" id="btn-4" class="butt3">
+
+                                <!-- sub sub category pcm -->
+                                <ul class="DigMod">
+                                    <a href="BROWSER/ask.html"><li>Amplitude Shift Keying(ASK)</li></a>
+                                    <a href="BROWSER/FSK.html"><li>Frequency Shift Keying(FSK)</li></a>
+                                    <a href="BROWSER/BPSK.html"><li>Binary Phase Shift Keying(BPSK)</li></a>
+                                </ul>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="../CaMTeS.html">About</a></li>
+                </ul>
+            </div>
+        </div>
+
+            </div>
+                <!-- Hovering Content color and animation -->
+
+            <div class="hoverContent">
+                <ol class="default">
+                    <li id="acrym"><h1 class="default">CaMTeS</h1></li>
+                    <li id="spell"><h2>Coding and Modulation Techniques Simulator</h2></li>
+                </ol>
+            </div>
+            
+
+            <div class="characterCoding">
+                <h1 class="firstSim">
+                    CHARACTER CODING</h1>
+            </div>
+            <!-- SIMULATOR DESCRIPTION -->
+            <div class="sim1Desc">
+                <p>Character coding is also referred to as character set, or charset. Character codes describes a particular encoding of characters in a digital information called bits. It defines how the bits in a character or stream of text are mapped to the character it represent. Character codes represent characters and symbols, such as letters, digits, and punctuation marks. In short, the relationship of bits to character is determined by the character code.</p>
+            </div>
+            
+            <div class="PCM">
+                <h1 class="secondSim">PULSE CODE MODULATION</h1>
+            </div>
+            <!-- SIMULATOR DESCRIPTION -->
+            <div class="sim2Desc">
+                <p>Pulse Code Modulation is a method that is used to convert an analog signal into a digital signal so that a modified analog signal can be transmitted through the digital communication network.
+                </p>
+            </div>
+
+            <div class="lineCoding">
+                <h1 class="thirdSim">LINE CODING</h1>
+            </div>
+            <!-- SIMULATOR DESCRIPTION -->
+            <div class="sim3Desc">
+                <p>Line coding is the process of converting digital data to digital signals. Using this technique a series of bits can be converted to a digital signal. Digital data are encoded into a digital signal at the transmitter side. At the receiver, the digital data is detected from the digital signal by decoding.
+                </p>
+            </div>
+            <div class="digitalModulation">
+                <h1 class="fourthSim">DIGITAL MODULATION</h1>
+            </div>
+            <!-- SIMULATOR DESCRIPTION -->
+            <div class="sim4Desc">
+                <p>Digital modulation is used to transfer a digital bit stream over an analog channel at a high frequency. This enables us to transmit signals generated in a digital circuit across a physical medium. Depending on which parameter of the carrier signal is varied in accordance with the digital message signal, we obtain three main variants of digital modulation called Amplitude Shift Keying (ASK), Frequency Shift Keying (FSK) and Phase Shift Keying (PSK).
+                </p>
+            </div>
+            
+        </div>
+
+                <!-- Simulator Icons -->
+        <ul class="simulatorIcons">
+            <li id="sim1">
+                <a href="BROWSER/characterCoding.html"><img src="BROWSER/mainPage/images/Character Coding Transparent.gif" class="simulators">
+                    <h3>Character Coding</h3>
+                </a>
+            </li>
+            <li id="sim2">
+                <a href="BROWSER/pre-page PCM.html"><img src="BROWSER/mainPage/images/PCM Transparent.gif">
+                    <h3>Pulse Code Modulation</h3>
+                </a>
+            </li>
+            <li id="sim3">
+                <a href="BROWSER/lineCoding.html"><img src="BROWSER/mainPage/images/Line Coding transparent.gif">
+                    <h3>Line Coding</h3>
+                </a>
+            </li>
+            <li id="sim4">
+                <a href="BROWSER/pre-page DigiMod.html"><img src="BROWSER/mainPage/images/Digital-Modulation Transparent.gif">
+                    <h3>Digital Modulation</h3>
+                </a>
+            </li>
+        </ul>
+
+            <!-- This code used to add animation and function to drop icon.. -->
+        <script>
+
+            $(document).ready(function(){
+                   $('#btn').click(function(){
+                       $(":not(#btn)").prop("checked",false,$('#btn').is(':checked'))
+                       $('div .button span').toggleClass("rotate");
+
+                       if($(".butt").prop("checked",false,$(".butt").is(":checked"))){
+                            $("div ul li span").removeClass("rotate");}});
+   
+                   $('.butt').click(function(){
+                       $(":not(.butt,#btn)").prop("checked",false,$('.butt').is(':checked'))
+                       $('div ul li .first span').toggleClass("rotate");
+
+                       if($(".butt2").prop("checked",false,$(".butt2").is(":checked"))){
+                           $(".second span").removeClass("rotate");}
+                       if($(".butt3").prop("checked",false,$(".butt3").is(":checked"))) {
+                           $(".third span").removeClass("rotate");}});
+   
+                   $(".butt2").click(function(){
+                       $(".butt3").prop("checked",false,$(".butt3").is(":checked"))
+                       $('.second span').toggleClass("rotate");
+   
+                       if($(".butt3").prop("checked",false,$(".butt3").is(":checked"))){
+                           $('.third span').removeClass("rotate");}});
+   
+                   $(".butt3").click(function(){
+                       $(".butt2").prop("checked",false,$(".butt2").is(":checked"))
+                       $('.third span').toggleClass("rotate");
+   
+                       if($(".butt2").prop("checked",false,$(".butt2").is(":checked"))){
+                           $('.second span').removeClass("rotate");}})
+                    });
+           </script>
+
+           <!-- HOVER SIMULATOR -->
+           <script>
+               //CHARACTER CODE HOVER
+                        $("#sim1").hover(function(){
+                             //hovered
+                             $(".characterCoding").fadeIn(50);
+                             $(".default").css("display", "none");
+                             $(".characterCoding").css("display", "flex");
+                             $(".navContainer").css("background-color", "#b65e16");
+                             $(".sim1Desc p").css("display", "flex");},
+                            
+                         function(){
+                             //not hovered
+                             $(".default").css("display", "flex");
+                             $(".characterCoding").css("display","none");
+                             $(".navContainer").css("background-color", "#838379");
+                             $(".sim1Desc p").css("display", "none");});
+
+
+                       //underline
+                       $("#sim1").hover(function(){
+                            $("#sim1 h3").css("text-decoration", "underline");},
+                       function(){
+                            $("#sim1 h3").css("text-decoration", "none");});
+
+                //PCM HOVER
+                       $("#sim2").hover(function(){
+                            //hovered
+                            $(".PCM").fadeIn(50);
+                            $(".default").css("display", "none");
+                            $(".PCM").css("display", "flex");
+                            $(".navContainer").css("background-color", "#173f5f")
+                            $(".sim2Desc p").css("display", "flex");;},
+
+                        function(){
+                            //not hovered
+                            $(".default").css("display", "flex");
+                            $(".PCM").css("display","none");
+                            $(".navContainer").css("background-color", "#838379");
+                            $(".sim2Desc p").css("display", "none");});
+
+                       //underline
+                       $("#sim2").hover(function(){
+                            $("#sim2 h3").css("text-decoration", "underline");},
+                       function(){
+                            $("#sim2 h3").css("text-decoration", "none");});
+
+                //LINE CODING HOVER
+                       $("#sim3").hover(function(){
+                            //hovered
+                            $(".lineCoding").fadeIn(50);
+                            $(".default").css("display", "none");
+                            $(".lineCoding").css("display", "flex");
+                            $(".navContainer").css("background-color", "#104f55");
+                            $(".sim3Desc p").css("display", "flex");},
+
+                        function(){
+                            //not hovered
+                            $(".default").css("display", "flex");
+                            $(".lineCoding").css("display","none");
+                            $(".navContainer").css("background-color", "#838379");
+                            $(".sim3Desc p").css("display", "none");});
+
+                       //underline
+                       $("#sim3").hover(function(){
+                            $("#sim3 h3").css("text-decoration", "underline");},
+                       function(){
+                            $("#sim3 h3").css("text-decoration", "none");});
+
+                //DIGITAL MODULATION HOVER
+                       $("#sim4").hover(function(){
+                            //hovered
+                            $(".digitalModulation").fadeIn(50);
+                            $(".default").css("display", "none");
+                            $(".digitalModulation").css("display", "flex");
+                            $(".navContainer").css("background-color", "#903c4c");
+                            $(".sim4Desc p").css("display", "flex");},
+
+                        function(){
+                            //not hovered
+                            $(".default").css("display", "flex");
+                            $(".digitalModulation").css("display","none");
+                            $(".navContainer").css("background-color", "#838379");
+                            $(".sim4Desc p").css("display", "none");});
+
+                       //underline
+                       $("#sim4").hover(function(){
+                            $("#sim4 h3").css("text-decoration", "underline");},
+                       function(){
+                            $("#sim4 h3").css("text-decoration", "none");});
+           </script>
+    </body>
+</html>

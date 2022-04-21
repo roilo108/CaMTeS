@@ -1,0 +1,1628 @@
+/* Remove body margins */
+body { 
+    margin: 0;   
+    background-color: #a5979bd1;    
+}
+
+/* Import FONTS */
+@font-face {
+    src: url(../Libs/FONTS/PressStart2P-Regular.ttf);
+    font-family: pressStart;
+}
+@font-face{
+    src: url(../Libs/FONTS/Jua-Regular.ttf);
+    font-family: jua;
+}
+@font-face{
+    src: url(../Libs/FONTS/PTSansCaption-Regular.ttf);
+    font-family: sans;
+}
+
+
+:root{
+    --fs-top: clamp(20px, 2vw + 13px, 1000px);
+    --fs-inputParam: clamp(10px, 0.7vw + 15px, 200px);
+    --fs-label: clamp(5px, 0.2vw + 11px, 100px);
+    --fs-h3: clamp(10px, 0.5vw + 12px, 100px);
+    --fs-elementColors: clamp(5px, 0.21vw + 9px, 100px);
+    -fs-elemCol: clamp(5px, 0.01vw + 8px, 100px);
+    --fs-cont:clamp(14px, 0.5vw + 14px, 200px);
+    --fs-footer: clamp(5px, 0.1vw + 15px, 100px);
+} 
+
+/* LOAD PAGE */
+.loader{
+    display: none;
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    height: 100%;
+    width: 60%;
+    min-width: 900px;
+    padding: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    z-index: 100;
+    justify-content: center;
+    background-color: rgba(59, 59, 59, 0.788);
+}
+
+/* test */
+.hide-loader{
+    display: none;
+}
+
+.camtes{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: 60%;
+    width: 30%;
+    padding: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    z-index: 100;
+    justify-content: center;
+    background-color: rgba(59, 59, 59, 0.788);
+}
+
+.bandLimit{
+    display: none;
+}
+
+/* For General Tab Styling*/
+    .tabContainer{
+        width:fit-content;
+        height: fit-content;
+        }
+
+
+    .tabContainer .buttonContainer{
+        height: 100px;
+        width: 75vw;
+        border-top: 50px;
+    }
+
+    .tabContainer .buttonContainer button{
+        width: 10%;
+        height: 47%;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        position: relative;
+        top: 53px;
+        padding: 10px;
+        font-size: 18px;
+        font-family: sans;
+        transition: .2s linear;
+        background-color: #eee;
+        border-radius: 5px 20px 0px 0px;
+    }
+
+    .tabContainer .buttonContainer button:hover{
+        background-color: #d7d4d4;
+    }
+
+    .tabContainer .tabPanel{
+        height: fit-content;
+        width: fit-content;
+        text-align: center;
+        padding-top: 40px;
+        
+        box-sizing: border-box;
+        font-family: sans-serif;
+        font-size: 22px;
+    } 
+
+    .tabContainer .tabPanel .top{
+        color: white;
+    }
+
+    #topButton{
+        font-size: clamp(5px, 0.5vw + 12px, 800px);
+    }
+
+ /* For OVERVIEW Tab */
+
+ #container1{
+    display: grid; 
+    grid-gap: 20px;
+    grid-template-columns: 2fr; 
+    grid-template-rows: 0.02fr 2fr -2fr 0.7fr; 
+
+    grid-template-areas: 
+    "top1 "       
+    "diagram" 
+    "cont"
+    "footer"; 
+}
+ /* FOR PAUSE PLAY MAIN*/
+ #checkBox{
+    cursor: pointer;
+
+    margin-top: 10px;
+    margin-left: 10px;
+    position: relative;
+    /* width: 3vw;
+    height: 2.5vh; */
+    width: 60px;
+    height: 30px;
+    -webkit-appearance: none;
+    background: #c6c6c6;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    /* transition: .5s; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    right: 38%;
+
+}
+#checkBox:checked{
+    background: #e0b4bc;
+}
+#checkBox::before{
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+   /*  width: 1.6vw;
+    height: 2.5vh; */
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    background: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: 0.5s
+}
+#checkBox:checked::before{
+    left: 30px;
+}
+
+.top1{
+    margin-left: 20px;
+    margin-bottom: 50px;
+    text-indent: 40px;
+    
+
+    color: rgb(255, 255, 255);
+    font-family: pressStart;
+    
+    font-style: unset;
+    font-weight: bold;
+    font-size: clamp(20px, 2vw + 13px, 1000px);
+    text-shadow: 15px 7px rgb(112, 110, 110);
+    grid-area: top1;
+}
+
+select{
+    min-height: 16px
+}
+button{
+    cursor: pointer;
+}
+
+.diagram{
+    grid-area: diagram;
+}
+
+.cont{
+    font-size: clamp(5px, 0.5vw + 16px, 800px);
+    line-height: 33px;
+    grid-area: cont;
+}
+
+    #subTitle{
+        color: rgb(242,242,248);
+        margin-left: 1.5%;
+        font-family: jua;
+        text-align: left;
+    }
+
+    #contP{
+        text-align: justify;
+        color: rgb(234,235,240);
+        margin-right: 70px;
+        margin-left: 40px;
+        text-indent: 2%;
+    }
+
+    img{
+        width: 80%;
+        height: 90%;
+        border: outset 2px #e0b4bc;
+    }
+
+.footer{
+    grid-area: footer;
+    font-size: var(--fs-footer);
+    font-family: sans;
+}
+
+
+/* For SIMULATOR Tab */
+
+    /* color hover for "encode" */
+    button:hover{
+        background-color: rgba(16, 116, 46, 0.76);
+        color: rgb(253, 253, 253);
+    } 
+
+
+    /* START of Grid */
+    #container{
+        display: grid; 
+      
+        grid-gap: 15px;
+        grid-template-columns: 0.4fr 3fr 3fr 1fr; 
+        grid-template-rows: 0.1fr 0.2fr 0.12fr; 
+
+        grid-template-areas: 
+        "top top top top"       
+        "userDefined  plots plots colorChange" 
+        "footer footer footer footer"; 
+    }
+
+    .top{
+        text-indent: 20px;
+        text-align: center;
+        
+        font-family: pressStart;
+        font-style: unset;
+        font-weight: bold;
+        margin-bottom: 10px;
+        font-size: var(--fs-top);
+        text-shadow: 10px 5px rgb(83, 83, 83);
+        
+        grid-area: top;
+    }
+
+    #userDefined{
+        height: fit-content;
+        width: 12vw;
+        margin-left: 25px;
+        
+        font: rgb(0, 0, 0);
+        background-color: #C792A0;
+        border: 3px solid whitesmoke; 
+        border-radius: 15px;
+        box-shadow: 15px 0px 0px 0px  rgba(228, 230, 231, 0.582);
+        grid-area: userDefined;
+    } 
+
+        #inputParam{
+            font-size: var(--fs-inputParam);
+            margin-bottom: 10px;
+        }
+        
+        .colorDivParam{
+            background-color: #D2B1BA;
+            padding: 20px;
+            text-align: left;
+        }
+
+        h3{
+            font: white;
+            font-size: var(--fs-h3);
+            text-align: center;
+            font-family: jua;
+        }
+
+
+        input[type=text]{
+            display: inline;
+            float: right;
+            width: 2vw;
+        }
+
+        input[type=text]#binaryInput{
+            display: inline;
+            float: left;
+            width: 9.4vw;
+            max-width: 10vw;
+        }
+
+        input[type=number]{
+            width: 1.5vw;
+        }
+
+        input[type=color]{
+            cursor: pointer;
+            width: 24px;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            appearance: none;
+            border: none;
+            border-width: 0;
+            border-radius: 3px;
+            height: 2.5vh;
+        }
+    
+        input[type=number]#numBits{
+            width: 3vw; 
+            margin-left: 3.2vw;
+        }
+
+        input{
+            font-size: clamp(10px, 0.1vw + 12px, 150px);
+        }
+
+        select{
+            cursor: pointer;
+            width: 8vw;
+            max-width: 160px;
+            margin-left: 10%;
+            font-size: clamp(5px, 0.2vw + 8px, 100px);
+            font-weight: bold;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        label{
+            font-family: sans;
+            font-size: var(--fs-label);
+        }
+
+        .first{
+            font-family: 'Times New Roman', Times, serif;
+        }
+    
+        .second{
+            font-family: 'Times New Roman', Times, serif;
+        }
+    
+        .third{
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        #enableDisable{
+            margin-left: 10%;
+            height: fit-content;
+        }
+
+        #preDefBits{
+            margin-left: 10%;
+        } 
+
+        #generateBits{
+            display: inline-block;
+            align-items: center;
+            cursor: pointer; 
+            padding: 4px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            margin-left: 2.6vw;
+            font-size: 13px;
+        }
+        
+        #execute{
+            display: inline-block;
+            align-items: center;
+            padding: 9px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+    
+        .plots{
+            width:70vw;
+            height:78vh;
+            margin-left: 35px;
+            margin-bottom: 30px;
+            border: solid 2px;
+            overflow-y: scroll;
+            grid-area: plots;
+        }
+
+            #myPlotModulating{
+                width:69.3vw;
+                height:75vh;
+                padding: 6px;
+                margin-bottom: 30px;
+            }
+
+            #myPlotCarrier{
+                width:69.3vw;
+                height:75vh;
+                padding: 6px;
+                margin-bottom: 30px;
+            }
+        
+            #myPlotTimeDom{
+                width:69.3vw;
+                height:75vh;
+                padding: 6px;
+                margin-bottom: 30px;
+            }
+
+            #myPlotFreqDom{
+                width:69.3vw;
+                height:75vh;
+                padding: 6px;
+                margin-bottom: 30px;
+            }
+
+            #myPlotRectified{
+                width:69.3vw;
+                height:75vh;
+                padding: 6px;
+                margin-bottom: 30px;
+            }
+
+            #myPlotFilteredEnvelope{
+                width:69.3vw;
+                height:75vh;
+                padding: 6px;
+            }
+
+
+    .colorChange{
+        height: fit-content;
+        width: 10.5vw;
+        text-align: left;
+                
+        border: 3px solid whitesmoke;
+        border-radius: 15px;
+        background-color:  #905160;
+        color: white;
+        grid-area: colorChange;
+    }
+
+        #elementColors{
+            border-bottom-style:solid ;
+            padding-bottom: 5px;
+            border-bottom-color: rgb(255, 255, 255);
+            font-size: var(--fs-elemCol);
+        }
+
+        #customTitle{
+            margin: 8px;
+            font-family: jua;
+            text-align: center;
+            font-size: var(--fs-h3); 
+        }
+
+
+        #insideColor{
+            padding-left: 0.8vw;
+            font-size: var(--fs-elemCol);
+            border-bottom: 1px solid;
+        }
+
+        #insideColor1{
+            padding-left: 0.8vw;
+            font-size: var(--fs-elemCol);
+            border-bottom: 1px solid;
+        }
+
+        #insideColor2{
+            padding-left: 0.8vw;
+            font-size: var(--fs-elemCol);
+            padding-bottom: 14px;
+        }
+
+        #insideColor3{
+            padding: 3px;
+            text-align: right;
+            font-size: var(--fs-elemCol);
+            border-top: 1px solid;
+            padding-top: 9px;
+        }
+
+        #insideColor4{
+            padding-left: 0.8vw;
+            font-size: var(--fs-elemCol);
+            border-bottom: 1px solid;
+            padding-bottom: 14px;
+        }
+
+        #window{
+            text-align: center;
+            margin-right: 2%; 
+            margin-bottom: 7px;
+            display: none;
+        }
+
+        #window2{
+            text-align: center;
+            margin-right: 2%; 
+            margin-bottom: 7px;
+            display: none;
+        }
+
+    .footer{
+        background-color: rgba(201, 192, 192, 0.075);
+        grid-area: footer;
+    } 
+
+
+ /* ------------------------------------------------  1700PX  ------------------------------------------------ */
+ @media only screen and (max-width:1700px){
+    :root{
+        --fs-top: clamp(20px, 2vw + 18px, 1000px);
+        --fs-inputParam: clamp(10px, 0.7vw + 16px, 200px);
+        --fs-label: clamp(5px, 0.2vw + 10px, 100px);
+        --fs-h3: clamp(10px, 0.5vw + 11px, 100px);
+        --fs-elementColors: clamp(5px, 0.2vw + 18px, 100px);
+        -fs-elemCol: clamp(5px, 0.1vw + 6px, 100px);
+    }
+
+
+/* OVERVIEW TAB */
+
+img{
+    width: 80%;
+    height: 90%;
+    border: outset 2px #e0b4bc;
+}
+
+
+     /* START of Grid */
+     #container{
+        display: grid; 
+      
+        grid-gap: 1px;
+        grid-template-columns: 0.4fr 3fr 2.4fr 1fr; 
+        grid-template-rows: 70px 1fr 0.12fr; 
+
+        grid-template-areas: 
+        "top top top top"       
+        "userDefined  plots plots userDefined2" 
+        "footer footer footer footer"; 
+    }
+/* FOR PAUSE PLAY 1700*/
+#checkBox{
+    cursor: pointer;
+
+    margin-top: 10px;
+    margin-left: 10px;
+    position: relative;
+    /* width: 3vw;
+    height: 2.5vh; */
+    width: 60px;
+    height: 30px;
+    -webkit-appearance: none;
+    background: #c6c6c6;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    /* transition: .5s; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    right: 38%;
+
+}
+
+#checkBox:checked{
+    background: #e0b4bc;
+}
+
+#checkBox::before{
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+   /*  width: 1.6vw;
+    height: 2.5vh; */
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    background: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: 0.5s
+}
+
+#checkBox:checked::before{
+    left: 30px;
+}
+
+    #userDefined{
+        /* position: sticky; */
+        top: 20px;
+
+        height: fit-content;
+        width: 13vw;
+        margin-left: 20px;
+
+        font: rgb(0, 0, 0);
+        background-color: #C792A0;
+        border: 3px solid whitesmoke; 
+        border-radius: 15px;
+        box-shadow: 15px 0px 0px 0px  rgba(228, 230, 231, 0.582);
+        grid-area: userDefined;
+    } 
+
+   
+    .colorChange{
+        height: fit-content;
+        width: 11vw;
+
+        border: 3px solid whitesmoke;
+        border-radius: 15px;
+        background-color: #905160;
+        color: white;
+        grid-area: userDefined2;
+    }
+
+    #generateBits {
+        margin-top: 6%;
+        margin-left: 25%;
+        cursor: pointer;
+    }
+
+    .plots{
+        width:68vw;
+        height:136vh;
+        margin-bottom: 30px;
+        margin-left: 27px;
+        overflow-y: scroll;
+        grid-area: plots;
+    }
+
+        #myPlotModulating{
+            width:66vw;
+            height:76vh;
+            padding: 6px;
+            margin-bottom: 30px;
+        }
+
+        #myPlotCarrier{
+            width:66vw;
+            height:76vh;
+            padding: 6px;
+            margin-bottom: 30px;
+        }
+
+        #myPlotTimeDom{
+            width:66vw;
+            height:76vh;
+            padding: 6px;
+            margin-bottom: 30px;
+        }
+
+        
+        #myPlotFreqDom{
+            width:66vw;
+            height:76vh;
+            padding: 6px;
+            margin-bottom: 30px;
+        }
+
+        
+        #myPlotRectified{
+            width:66vw;
+            height:76vh;
+            padding: 6px;
+            margin-bottom: 30px;
+        }
+
+        #myPlotFilteredEnvelope{
+            width:66vw;
+            height:76vh;
+            padding: 6px;
+            margin-bottom: 30px;
+        }
+}
+
+/* ------------------------------------------------  1400PX  ------------------------------------------------ */
+    @media only screen and (max-width:1400px){
+    :root{
+        --fs-top: clamp(20px, 2vw + 18px, 1000px);
+        --fs-inputParam: clamp(10px, 0.7vw + 16px, 200px);
+        --fs-label: clamp(5px, 0.2vw + 10px, 100px);
+        --fs-h3: clamp(10px, 0.5vw + 11px, 100px);
+        --fs-elementColors: clamp(5px, 0.2vw + 18px, 100px);
+        -fs-elemCol: clamp(5px, 0.1vw + 6px, 100px);
+        } 
+
+    /* For General Tab Styling*/
+    .tabContainer{
+        width:fit-content;
+        height: fit-content;
+    }
+
+
+    .tabContainer .buttonContainer{
+        height: 100px;
+        width: 98vw;
+        border-top: 50px;
+    }
+
+    .tabContainer .buttonContainer button{
+        width: 10%;
+        height: 47%;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        position: relative;
+        top: 53px;
+        padding: 10px;
+        font-size: 18px;
+        font-family: sans;
+        transition: .2s linear;
+        background-color: #eee;
+        border-radius: 5px 20px 0px 0px;
+    }
+
+    .tabContainer .buttonContainer button:hover{
+        background-color: #d7d4d4;
+    }
+
+    .tabContainer .tabPanel{
+        height: fit-content;
+        width: 100vw;
+        text-align: center;
+        padding-top: 40px;
+        
+        box-sizing: border-box;
+        font-family: sans-serif;
+        font-size: 22px;
+    } 
+
+    .tabContainer .tabPanel .top{
+        color: white;
+    }
+
+
+    /* OVERVIEW TAB */
+
+    img{
+        width: 80%;
+        height: 90%;
+        border: outset 2px #e0b4bc;
+    }
+
+
+    /* For SIMULATOR Tab */
+        #container{
+            display: grid; 
+          
+            grid-gap: 8px;
+            grid-template-columns: 0.6fr 1fr 1fr 0.57fr; 
+            grid-template-rows: 0.11fr 1fr 0.11fr;
+    
+            grid-template-areas: 
+            "top top top top"       
+            "userDefined  plots plots colorChange" 
+            "footer footer footer footer"; 
+        }
+        
+        .top{
+            text-indent: 20px;
+            text-align: center;
+
+            margin-top: 10px;
+            margin-bottom: 10px;
+
+            font-family: pressStart;
+            font-style: unset;
+            font-weight: bold;
+            font-size: var(--fs-top);
+            text-shadow: 10px 5px rgb(83, 83, 83);
+
+            grid-area: top;
+        }
+    
+        #userDefined{
+            height: fit-content;
+            width: 15.3vw;
+
+            font: rgb(0, 0, 0);
+            background-color: #C792A0;
+            border: 3px solid whitesmoke;
+            margin-left: 15px; 
+            border-radius: 15px;
+            box-shadow: 15px 0px 0px 0px  rgba(228, 230, 231, 0.582);
+            grid-area: userDefined;
+        } 
+            #inputParam{
+                font-size: var(--fs-inputParam);
+                margin-bottom: 10px;
+            }
+            
+            .colorDivParam{
+                background-color: #D2B1BA;
+                padding: 16px;
+                text-align: left;
+            }
+    
+            h3{
+                font: white;
+                font-size: var(--fs-h3);
+                text-align: center;
+                font-family: jua;
+            }
+    
+            input[type=number]{
+                width: 1.8vw; 
+            }
+    
+            input[type=text]{
+                display: inline;
+                float: right;
+                width: 3.3vw;
+            }
+
+            input[type=text]#binaryInput{
+                display: inline;
+                float: left;
+                width: 12vw;
+                max-width: 156px;
+            }
+
+            input[type=number]#numBits {
+                width: 3vw;
+                margin-left: 4.2vw;
+            }
+    
+            input[type=color]{
+                cursor: pointer;
+                width: 19px;
+            }
+        
+            input{
+                font-size: clamp(10px, 0.1vw + 12px, 150px);
+            }
+    
+            #enableDisable{
+                margin-left: 20%;
+                height: fit-content;
+                cursor: pointer;
+            }
+
+            #bandLimiting{
+                cursor: pointer;
+                width: 8vw;
+                max-width: 160px;
+                margin-left: 18%; 
+                font-size: clamp(5px, 0.2vw + 8px, 100px);
+                font-weight: bold;
+                text-align: center;
+            }
+
+            #preDefBits{
+                margin-left: 20%;
+            }
+
+            #BW{
+                display: none;
+            }
+    
+            label{
+                font-family: sans;
+                font-size: var(--fs-label);
+            }
+            
+            #execute{
+                display: inline-block;
+                align-items: center;
+                padding: 9px;
+                margin-top: 20px;
+                margin-bottom: 10px;
+                font-size: 15px;
+                cursor: pointer;
+            }
+        
+            .plots{
+                width:64.4vw;
+                height:136vh;
+                margin-bottom: 30px;
+                margin-left: 25px;
+                overflow-y: scroll;
+                grid-area: plots;
+            }
+
+                #myPlotModulating{
+                    width:62.4vw;
+                    height:66.4vh;
+                    padding: 6px;
+                    margin-bottom: 30px;
+                    
+                }
+
+                #myPlotCarrier{
+                    width:62.4vw;
+                    height:66.4vh;
+                    padding: 6px;
+                    margin-bottom: 30px;
+                    
+                }
+
+                #myPlotTimeDom{
+                    width:62.4vw;
+                    height:66.4vh;
+                    padding: 6px;
+                    margin-bottom: 30px;
+                    
+                }
+
+                #myPlotFreqDom{
+                    width:62.4vw;
+                    height:66.4vh;
+                    padding: 6px;
+                    margin-bottom: 30px;
+                    
+                }
+
+                #myPlotRectified{
+                    width:62.4vw;
+                    height:66.4vh;
+                    padding: 6px;
+                    margin-bottom: 30px;
+                    
+                }
+
+                #myPlotFilteredEnvelope{
+                    width:62.4vw;
+                    height:66.4vh;
+                    padding: 6px;
+                    margin-bottom: 30px;
+                    
+                }
+    
+            
+    
+        .colorChange{
+            top: 50px;
+            height: fit-content;
+            width: 12vw;
+            text-align: left;
+            margin-left: 7px;
+            
+            border: 3px solid whitesmoke;
+            border-radius: 15px;
+            background-color: #905160;
+            color: white;
+            grid-area: colorChange;
+        }
+    
+            #elementColors{
+                border-bottom-style:solid ;
+                padding-bottom: 5px;
+                border-bottom-color: rgb(255, 255, 255);
+                font-size: var(--fs-elemCol);
+            }
+    
+            #customTitle{
+                margin: 8px;
+                font-family: jua;
+                text-align: center;
+                font-size: var(--fs-h3); 
+            }
+
+            #insideColor{
+                padding-left: 0;
+                text-align: center;
+                font-size: var(--fs-elemCol);
+                padding-bottom: 14px;
+                border-bottom: 1px solid;
+            }
+    
+            #insideColor1{
+                padding-left: 0;
+                text-align: center;
+                font-size: var(--fs-elemCol);
+                padding-bottom: 14px;
+                border-bottom: 1px solid;
+            }
+
+            #insideColor2{
+                padding-left: 0;
+                text-align: center;
+                font-size: var(--fs-elemCol);
+                padding-bottom: 14px;
+            }
+
+            #insideColor3{
+                padding: 3px;
+                text-align: right;
+                font-size: var(--fs-elemCol);
+                border-top: 1px solid;
+                padding-top: 9px;
+            }
+            
+            #window{
+                text-align: center;
+            }
+    
+            #window2{
+                text-align: center;
+            }
+    
+        .footer{
+            background-color: rgba(201, 192, 192, 0.075);
+            grid-area: footer;
+        } 
+    }
+ 
+    
+      /* ------------------------------------------------  1024PX  ------------------------------------------------ */
+      @media only screen and (max-width:1024px){
+        :root{
+            --fs-top: clamp(20px, 2vw + 18px, 1000px);
+            --fs-inputParam: clamp(10px, 0.7vw + 16px, 200px);
+            --fs-label: clamp(5px, 0.2vw + 10px, 100px);
+            --fs-h3: clamp(10px, 0.5vw + 11px, 100px);
+            --fs-elementColors: clamp(5px, 0.2vw + 18px, 100px);
+            -fs-elemCol: clamp(5px, 0.1vw + 6px, 100px);
+            } 
+    
+            .tabContainer .buttonContainer{
+                height: 100px;
+                width: 97vw;
+                border-top: 50px;
+            }
+        
+            .tabContainer .buttonContainer button{
+                width: 14%;
+                height: 47%;
+                float: left;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                position: relative;
+                top: 53px;
+                padding: 10px;
+                font-size: 18px;
+                font-family: sans;
+                transition: .2s linear;
+                background-color: #eee;
+                border-radius: 5px 20px 0px 0px;
+            }
+        
+    
+    /* For OVERVIEW Tab */
+    
+    #container1{
+        display: grid; 
+        grid-gap: 20px;
+        grid-template-columns: 2fr; 
+        grid-template-rows: 0.02fr 2fr -2fr 0.7fr; 
+    
+        grid-template-areas: 
+        "top1 "       
+        "diagram" 
+        "cont"
+        "footer"; 
+    }
+    /* FOR PAUSE PLAY 1024*/
+#checkBox{
+    cursor: pointer;
+
+    margin-top: 10px;
+    margin-left: 10px;
+    position: relative;
+    /* width: 3vw;
+    height: 2.5vh; */
+    width: 40px;
+    height: 20px;
+    -webkit-appearance: none;
+    background: #c6c6c6;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    /* transition: .5s; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    right: 38%;
+
+}
+
+#checkBox:checked{
+    background: #e0b4bc;
+}
+#checkBox::before{
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+   /*  width: 1.6vw;
+    height: 2.5vh; */
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    background: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: 0.5s
+}
+#checkBox:checked::before{
+    left: 20px;
+}
+    
+    .top1{
+        margin-left: 20px;
+        margin-bottom: 50px;
+        text-indent: 40px;
+        
+    
+        color: rgb(255, 255, 255);
+        font-family: pressStart;
+        
+        font-style: unset;
+        font-weight: bold;
+        font-size: clamp(20px, 2vw + 13px, 1000px);
+        text-shadow: 15px 7px rgb(112, 110, 110);
+        grid-area: top1;
+    }
+    
+    .diagram{
+        grid-area: diagram;
+    }
+    
+    .cont{
+        font-size: clamp(5px, 0.5vw + 16px, 800px);
+        line-height: 33px;
+        grid-area: cont;
+    }
+    
+        #subTitle{
+            color: rgb(242,242,248);
+            margin-left: 1.5%;
+            font-family: jua;
+            text-align: left;
+        }
+    
+        #contP{
+            text-align: justify;
+            color: rgb(234,235,240);
+            margin-right: 70px;
+            margin-left: 40px;
+            text-indent: 2%;
+        }
+    
+        img{
+            width: 80%;
+            height: 90%;
+            border: outset 2px #e0b4bc;
+        }
+    
+    
+    .footer{
+        grid-area: footer;
+    }
+    
+    
+        /* START of Grid */
+         #container{
+            display: grid; 
+          
+            grid-gap: 1px;
+            grid-template-columns: 0.4fr 0.4fr 0.4fr 0.4fr; 
+            grid-template-rows: 70px 1fr 0.12fr; 
+    
+            grid-template-areas: 
+            "top top top top"       
+            "userDefined  plots plots userDefined2" 
+            "footer footer footer footer"; 
+        }
+    
+        .tabContainer .buttonContainer{
+            height: 100px;
+            width: 75vw;
+            border-top: 50px;
+        }
+    
+        #userDefined{
+            /* position: sticky; */
+            top: 2px;
+    
+            height: fit-content;
+            width: 17vw;
+            margin-left: 15px;
+    
+            font: rgb(0, 0, 0);
+            background-color: #C792A0;
+            border: 3px solid whitesmoke; 
+            border-radius: 15px;
+            box-shadow: 15px 0px 0px 0px  rgba(228, 230, 231, 0.582);
+            grid-area: userDefined;
+        } 
+    
+    
+            .colorChange{
+                height: fit-content;
+                width: 17.5vw;
+    
+                border: 3px solid whitesmoke;
+                border-radius: 15px;
+                background-color:  #905160;
+                color: white;
+                grid-area: userDefined2;
+                }
+    
+        .plots{
+            width:56vw;
+            height:70vh;
+            margin-bottom: 30px;
+            margin-left: 27px;
+            overflow-y: scroll;
+            grid-area: plots;
+        }
+    
+            #myPlotModulating{
+                width:53.5vw;
+                height:67.3vh;
+                padding: 6px;
+                margin-bottom: 30px;
+            }
+    
+            #myPlotCarrier{
+                width:53.5vw;
+                height:67.3vh;
+                padding: 6px;
+                margin-bottom: 30px;
+            }
+    
+            #myPlotTimeDom{
+                width:53.5vw;
+                height:67.3vh;
+                padding: 6px;
+                margin-bottom: 30px;
+            }
+
+            #myPlotFreqDom{
+                width:53.5vw;
+                height:67.3vh;
+                padding: 6px;
+                margin-bottom: 30px;
+            }
+
+            #myPlotRectified{
+                width:53.5vw;
+                height:67.3vh;
+                padding: 6px;
+                margin-bottom: 30px;
+            }
+
+            #myPlotFilteredEnvelope{
+                width:53.5vw;
+                height:67.3vh;
+                padding: 6px;
+                margin-bottom: 30px;
+            }
+    
+            input[type=text]{
+                min-width: 4vw;
+                max-width: 108px;
+                display: inline;
+                float: center;
+                margin-left: 20px;
+            }
+
+            input[type=number]{
+                width: 3vw; 
+            }
+    }
+
+
+     
+    /* ------------------------------------- 1000px ----------------------------------- */
+ @media only screen and (max-width:1000px){
+
+    :root{
+        --fs-top: clamp(20px, 2vw + 15px, 1000px);
+        --fs-inputParam: clamp(10px, 0.7vw + 18px, 200px);
+        --fs-label: clamp(5px, 0.2vw + 11px, 100px);
+        --fs-h3: clamp(10px, 0.5vw + 12px, 100px);
+        --fs-elementColors: clamp(5px, 0.2vw + 18px, 100px);
+        -fs-elemCol: clamp(5px, 0.1vw + 5px, 100px);
+    } 
+
+
+    .tabContainer .buttonContainer button{
+        width: 35%;
+        height: 47%;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        position: relative;
+        top: 63px;
+        padding: 10px;
+        font-size: 18px;
+        font-family: sans;
+        transition: .2s linear;
+        background-color: #eee;
+        border-radius: 5px 20px 0px 0px;
+    }
+
+    .tabContainer .buttonContainer{
+        height:100px;
+        width: 30vw;
+        position: relative;
+        top: -10px;
+        margin: none;
+    }
+
+    .tabContainer {
+        height: fit-content;
+        width: 90vw;
+    }
+
+    
+    /* For OVERVIEW Tab */
+
+    #container1{
+        display: grid; 
+        grid-gap: 20px;
+        grid-template-columns: 2fr; 
+        grid-template-rows: 0.02fr 2fr -2fr 0.7fr; 
+    
+        grid-template-areas: 
+        "top1 "       
+        "diagram" 
+        "cont"
+        "footer"; 
+    }
+
+
+    .top1{
+        margin-left: 20px;
+        margin-bottom: 50px;
+        text-indent: 20px;
+        text-align: left;
+
+        color: rgb(255, 255, 255);
+        font-family: pressStart;
+        
+        font-style: unset;
+        font-weight: bold;
+        font-size: clamp(20px, 2vw + 13px, 1000px);
+        text-shadow: 15px 7px rgb(112, 110, 110);
+        grid-area: top1;
+    }
+
+    .diagram{
+        grid-area: diagram;
+    }
+
+    .cont{
+        font-size: clamp(5px, 0.5vw + 16px, 800px);
+        line-height: 33px;
+        grid-area: cont;
+    }
+
+        #subTitle{
+            color: rgb(242,242,248);
+            margin-left: 12px;
+            font-family: jua;
+            text-align: left;
+        }
+
+        #contP{
+            text-align: justify;
+            color: rgb(234,235,240);
+            margin-right: 70px;
+            margin-left: 40px;
+        }
+
+        img{
+            width: 75vw;
+            height: 65vh;
+        }
+
+    .footer{
+        grid-area: footer;
+    }
+    
+    
+    /* For SIMULATOR Tab */
+    #container{
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: 0.06fr 0.4fr 0.3fr 1fr 0.1fr;
+        grid-gap: 30px;
+
+        grid-template-areas: 
+        "top"
+        "userDefined "
+        "colorChange " 
+        "plots"
+        "footer"
+    }
+
+    .top{
+        margin-left: 0%;
+        margin-top: 0px;
+        margin-bottom: 0%;
+        text-align: center;
+        font-size: var(--fs-top);
+        grid-area: top;
+    }
+
+    #userDefined{
+        position: static;
+        margin-left: 45px;
+        height: fit-content;
+        width: 85vw;
+        background-color: #C792A0;
+        grid-area:userDefined;
+
+    }
+    
+    #inputParam{
+        font-size: var(--fs-inputParam);
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    #preDefBits{
+        margin-left: 39.5vw;
+        display: block;
+        align-items: center;
+    }
+
+    #generateBits{
+        margin-left: 0%;
+        cursor: pointer;
+    }
+
+    .colorChange{
+        position: static;
+        height: fit-content;
+        margin-left: 5%;
+        width: 85vw;
+        grid-column: 2/span 2;
+        grid-row: 2/span 2;
+        
+        background-color:  #905160;
+        grid-area: colorChange;
+    }
+
+    .colorDivParam{
+        background-color: #D2B1BA;
+        padding: 5px;
+        text-align: center;
+        height: fit-content;
+
+    }
+
+
+    h3{
+        font-size: 15px;
+    }
+
+    #execute{
+        display: inline;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .plots{
+        width:92vw;
+        height:90vh;
+        margin-bottom: 30px;
+        margin-left: 2%;
+        overflow-y: scroll;
+        grid-area: plots;
+    }
+    
+        #myPlotModulating{
+            width: 88.5vw;
+            height: 86vh;;
+            top: 1vh;
+            padding: 6px;
+        }
+
+        #myPlotCarrier{
+            width: 88.5vw;
+            height:86vh;
+            padding: 6px;
+        }
+
+        #myPlotTimeDom{
+            width: 88.5vw;
+            height:86vh;
+            padding: 6px;
+        }
+
+        #myPlotFreqDom{
+            width: 88.5vw;
+            height: 86vh;;
+            top: 1vh;
+            padding: 6px;
+        }
+
+        #myPlotRectified{
+            width: 88.5vw;
+            height: 86vh;;
+            top: 1vh;
+            padding: 6px;
+        }
+
+        #myPlotFilteredEnvelope{
+            width: 88.5vw;
+            height: 86vh;;
+            top: 1vh;
+            padding: 6px;
+        }
+
+
+        input[type=number]#numBits{
+            width: 6vw; 
+            margin-left: 0%;
+        }
+
+    input[type=number]{
+        width: 3vw; 
+    }
+
+    input[type=text]{
+        float: none;
+        width: 5vw;
+    }
+
+    input[type=text]#binaryInput{
+        display: inline;
+        float: none;
+        width: 12vw;
+    }
+
+    input[type=color]{
+        cursor: pointer;
+        width: 24px;
+    }
+
+    br {
+        display:none
+    } 
+
+    select{
+        cursor: pointer;
+        width: 20vw;
+        height: 2vh;
+        margin-left: 0%;
+        font-size: clamp(5px, 0.2vw + 11px, 100px);
+        font-weight: bold;
+        text-align: center; 
+        border-radius: 5px;
+    }
+
+        
+    #enableDisable{
+        margin-left: 0%; 
+    }
+
+    #bandLimiting{
+        margin-left: 0%; 
+    }
+
+    #insideColor1{
+       text-align: center;
+    }
+
+    #insideColor2{
+        text-align: center;
+     }
+
+     #insideColor{
+        text-align: center;
+        border-bottom: 1px solid;
+     }
+
+     #insideColor3{
+        text-align: center;
+        border-top: 1px solid;
+        padding-top: 9px;
+    }
+
+    #insideColor4{
+        text-align: center;
+    }
+
+
+}
+
+
+ /* END OF STYLE */

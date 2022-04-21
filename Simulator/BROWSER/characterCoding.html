@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   
+    <head>
+    <link rel="stylesheet" href="CHARACTER CODING/characterCoding.css">
+    <link rel="stylesheet" href="menu/menuButton.css">
+    <link rel="shortcut icon" type="x-icon" href="menu/CaMTS.png">
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="menu/seesaw_CC.css">
+    <script src="menu/jquery-3.6.0.js"></script>
+    <script src="menu/button.js"></script>
+
+    <img src="CHARACTER CODING/loading/loader.gif" class="loader">
+    <img src="CHARACTER CODING/loading/Main Logo CaMTS Logo.gif" class="camtes">
+<script>
+    $(".camtes").css("display", "flex" );
+  $(document).ready(function(){
+    $(".camtes").delay(1000); // simulate loading time
+              $(".camtes").fadeOut();
+  });
+</script>
+    <title>CHARACTER CODING</title>
+</head>
+
+
+<body>
+
+<!-- For TAB Style -->
+<div class="tabContainer">
+        <div class="buttonContainer">
+            <button id="topButton" onclick="showPanel(0,'#B65E16')">Overview</button>
+            <button  id="topButton" onclick="showPanel(1,'#C88535')">Simulator</button>
+
+            <div id="container2">
+                <div class="menu">
+                    <label for="btn" class="button">MENU
+                        <span class="fas fa-caret-down"></span>
+                    </label>
+                        <input type="checkbox" id="btn" class="firstInput">
+                    
+                        <ul class="ClickMenu">
+                            <li><a href="../mainFlexPage.html">Home</a></li>
+                            <li>
+                                <label for="btn-2" class="first">Simulators
+                                    <span class="fas fa-caret-down"></span>
+                                </label>
+                                    <input type="checkbox" id="btn-2" class="butt">
+                                
+                                <ul>
+                                    <li><a href="characterCoding.html">Character Coding</a></li>
+                                    <li>
+                                        <label for="btn-3" class="second">Pulse Code <span class="fas fa-caret-down"></span>Modulation  
+                                        </label>
+                                            <input type="checkbox" id="btn-3" class="butt2">
+        
+                                        <!-- sub sub category pcm -->
+                                        <ul class="subCat">
+                                            <a href="BasicPCM.html"><li>Basic PCM</li></a>
+                                            <a href="analogCompanding.html"><li>PCM with Analog Companding</li></a>
+                                            <a href="digitalCompanding.html"><li>PCM with Digital Companding</li></a>
+                                            <a href="deltaPCM.html"><li>Delta PCM</li></a>
+                                            <a href="adaptiveDelta.html"><li>Adaptive PCM</li></a>
+                                            <a href="differentialPCM.html"> <li>Differential PCM</li></a>
+                                        </ul>
+                                    </li>
+        
+                                    <li><a href="lineCoding.html">Line Coding</a></li>
+                                    <li>
+                                        <label for="btn-4" class="third">Digital<span class="fas fa-caret-down"></span>Modulation    
+                                        </label>
+                                            <input type="checkbox" id="btn-4" class="butt3">
+        
+                                        <!-- sub sub category pcm -->
+                                        <ul class="DigMod">
+                                            <li><a href="ask.html">Amplitude Shift Keying(ASK)</a></li>
+                                            <li><a href="FSK.html">Frequency Shift Keying(FSK)</a></li>
+                                            <li><a href="BPSK.html">Binary Phase Shift Keying(BPSK)</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+        
+                            <li><a href="../../CaMTeS.html">About</a></li>
+                        </ul>
+        
+                </div> <!-- END of menu -->
+            </div> <!-- END of container2  -->
+        </div> <!-- END of TAB Style -->
+
+
+       <!-- For OVERVIEW TAB  -->
+    <div class="tabPanel">
+        <div id="container1">  <!-- START OF GRID -->
+                <div class="top1">Character Coding</div>
+                <div class="footer">	 <p style="position: relative;
+                    top: 2.3vh;">&copy; 2022 Saint Louis University. All rights reserved</p>
+                <div class="left">Found a bug <i class="fa-solid fa-bug"></i>?</div>  </div> 
+
+                <div class="diagram">
+                    <input type="checkbox" name="" id="checkBox" class="check_box" id="checkbox1" onclick="checkBoxVal()">
+                    <div class="diagram_2">
+                    <img src="CHARACTER CODING/diagram/Character coding_stop.jpg" style="display: none;">
+                    <img src="CHARACTER CODING/diagram/Character-coding.gif">
+                     </div>
+                </div> <!--END of diagram -->
+
+                <div class="cont">
+                    <h1 id="subTitle">Overview</h1>
+                    <p id="contP">Character coding is a process of representing characters in a digital format called bits. It defines how the bits are mapped to the character it represents. The common types of a character encoding are the ASCII and EBCDIC.
+
+                    
+                    </p>
+
+
+                </div> <!-- END of cont -->
+        </div> <!-- END of Grid -->
+    </div> <!-- END of Tab 1 -->  
+
+            <!-- For SIMULATOR TAB  -->
+            <div class="tabPanel">
+                <div id="container">  <!-- START OF GRID -->
+                    <div class="top">Character Coding</div>
+                    <!-- <div class="none"></div> -->
+                    <div class="footer">	 <p style="position: relative;
+                        top: 2.3vh;">&copy; 2022 Saint Louis University. All rights reserved</p>
+                    <div class="left">Found a bug <i class="fa-solid fa-bug"></i>?</div>  </div> 
+
+            
+                <div id="userDefined">
+                    <h3 id="transmit">TRANSMITTER</h2>
+                    <div class="colorDivParam">
+                        <!-- FOR transmitter -->
+                            <div class="ascii" id="transmitter">
+                                <div class="asciiChild">
+                                    <label id="labeltransmitSelect">Type:</label>
+                                        <select id="transmitSelect" >
+                                            <option value="ASCII">ASCII</option>
+                                            <option value="EBCDIC">EBCDIC</option>
+                                        </select><br>
+
+                                    <label id="labelparitySelect">Parity:</label>
+                                        <select id="paritySelect" >
+                                            <option value="noparity">No Parity</option>
+                                            <option value="oddparity">Odd Parity</option>
+                                            <option value="evenparity">Even Parity</option>
+                                        </select><br>
+                                </div> <!-- END asciiChild -->
+                            </div> <!-- END transmitter -->
+                        <label id= "Input" for="asciiText">Input: </label>
+                        <input type="text" id="asciiText"><br><br>
+
+                    </div><br><!-- END colorDivParam -->
+                        <button type="button" id="asciiButton" onclick="parityDropDown()">ENCODE</button>
+                        <p id = "transmitVal1">TRANSMIT:</p>
+                        <p id = "transmitVal" class="transmitValue"></p>
+                        <p id = "transmitVal2" class="transmitValue"></p>
+                    <!-- <p  id="asciiOutput"></p> -->
+                    <!-- class="asciiOutput" -->
+                        <p id="asciiDecode"></p>
+                        
+              </div> <!-- END userDefined -->
+
+
+            <div id="userDefined1">
+                <h3 id="receive">RECEIVER</h2>
+                <div class="colorDivParam1"> 
+                    <!-- FOR receiver -->
+                    <div class="ebcdic" id="receiver">
+                    <div class="ebcdicChild">
+
+                        <label id="labelreceiveSelect">Type:</label>
+                            <select id="receiveSelect" onchange="receiveDropDown();">
+                                <option value="ASCII">ASCII</option>
+                                <option value="EBCDIC">EBCDIC</option>
+                            </select>
+                        </div> <!-- END ebcdicChild -->
+                    </div> <!-- END receiver -->
+                </div><!-- END colorDivParam -->
+
+                            <p id="Received">RECEIVED:</p>
+                            <p class="ebcdicOutput" id="ebcdicOutput"></p>
+                            <p id="ebcdicDecode"></p>
+            </div> <!-- END userDefined1 -->
+    
+            
+
+                    <div class="plots">
+                        <p id="outBitStream">BIT STREAM:</p>
+                        <p id="asciiOutput"></p>
+                        <div id = "myPlotTable"></div>
+                    </div> 
+
+                </div> <!-- END of Grid -->
+            </div> <!-- END of Tab 2 -->
+
+
+</div> <!-- END of Tab style -->
+
+
+                    <script src="Libs/Main Libs/jquery-3.6.0.min.js"></script>
+                    <script src="Libs/Main Libs/plotly-latest.min.js"></script>
+                <script src="CHARACTER CODING/characterCoding.js"></script>
+                <script>
+
+                    let checkCounter = 0;
+                    function checkBoxVal(){
+                        console.log($("#checkBox").val());
+                        if($("#checkBox").val() === "on" && checkCounter === 0){
+                            checkCounter = 1;
+                            $(".diagram_2").html('<img id= "changeIMG" src="CHARACTER CODING/diagram/Character coding_stop.jpg" />')
+                            
+                            console.log(checkCounter);
+                        }
+                        else{
+                            checkCounter = 0;
+                            $(".diagram_2").html('<img id= "changeIMG" src="CHARACTER CODING/diagram/Character-coding.gif" />')
+
+                            console.log(checkCounter)
+                        }
+                    }
+                </script>
+
+<script>
+
+    $(document).ready(function(){
+           $('#btn').click(function(){
+               $(":not(#btn)").prop("checked",false,$('#btn').is(':checked'))
+               $('div .button span').toggleClass("rotate");
+
+               if($(".butt").prop("checked",false,$(".butt").is(":checked"))){
+                    $("div ul li span").removeClass("rotate");
+               }
+           });
+
+           $('.butt').click(function(){
+               $(":not(.butt,#btn)").prop("checked",false,$('.butt').is(':checked'))
+               $('div ul li .first span').toggleClass("rotate");
+
+               if($(".butt2").prop("checked",false,$(".butt2").is(":checked"))){
+                   $(".second span").removeClass("rotate");
+               }
+               if($(".butt3").prop("checked",false,$(".butt3").is(":checked"))) {
+                   $(".third span").removeClass("rotate");
+               }
+           });
+
+           $(".butt2").click(function(){
+               $(".butt3").prop("checked",false,$(".butt3").is(":checked"))
+               $('.second span').toggleClass("rotate");
+
+               if($(".butt3").prop("checked",false,$(".butt3").is(":checked"))){
+                   $('.third span').removeClass("rotate");
+               }
+           })
+
+           $(".butt3").click(function(){
+               $(".butt2").prop("checked",false,$(".butt2").is(":checked"))
+               $('.third span').toggleClass("rotate");
+
+               if($(".butt2").prop("checked",false,$(".butt2").is(":checked"))){
+                   $('.second span').removeClass("rotate");
+               }
+           })
+    });
+   </script>
+
+</body>
+</html>

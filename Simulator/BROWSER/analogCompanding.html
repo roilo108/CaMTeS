@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="Analog Companding PCM/analogCompanding.css">
+    <link rel="stylesheet" href="menu/menuButton.css">
+    <link rel="shortcut icon" type="x-icon" href="menu/CaMTS.png">
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="menu/jquery-3.6.0.js"></script>
+    <script src="menu/button.js"></script>
+    <link rel="stylesheet" href="menu/seesaw.css">
+    <img src="Analog Companding PCM/loading/loader.gif" class="loader">
+    <img src="Analog Companding PCM/loading/Main Logo CaMTS Logo.gif" class="camtes">
+    <title>PCM with Analog Companding</title>
+</head>
+<script>
+    $(".camtes").css("display", "flex" );
+  $(document).ready(function(){
+    $(".camtes").delay(1000); // simulate loading time
+              $(".camtes").fadeOut();
+  });
+</script>
+
+<body>
+
+<!-- For TAB Style -->
+<div class="tabContainer">
+    <div class="buttonContainer">
+        <button id="topButton" onclick="showPanel(0,'#173F5F')">Overview</button>
+        <button id="topButton" onclick="showPanel(1,'#20639B')">Simulator</button>
+
+        <div id="container2">
+            <div class="menu">
+                <label for="btn" class="button">MENU
+                    <span class="fas fa-caret-down"></span>
+                </label>
+                    <input type="checkbox" id="btn" class="firstInput">
+                
+                    <ul class="ClickMenu">
+                        <li><a href="../mainFlexPage.html">Home</a></li>
+                        <li>
+                            <label for="btn-2" class="first">Simulators
+                                <span class="fas fa-caret-down"></span>
+                            </label>
+                                <input type="checkbox" id="btn-2" class="butt">
+                            
+                            <ul>
+                                <li><a href="characterCoding.html">Character Coding</a></li>
+                                <li>
+                                    <label for="btn-3" class="second">Pulse Code <span class="fas fa-caret-down"></span>Modulation  
+                                    </label>
+                                        <input type="checkbox" id="btn-3" class="butt2">
+    
+                                    <!-- sub sub category pcm -->
+                                    <ul class="subCat">
+                                        <a href="BasicPCM.html"><li>Basic PCM</li></a>
+                                        <a href="analogCompanding.html"><li>PCM with Analog Companding</li></a>
+                                        <a href="digitalCompanding.html"><li>PCM with Digital Companding</li></a>
+                                        <a href="deltaPCM.html"><li>Delta PCM</li></a>
+                                        <a href="adaptiveDelta.html"><li>Adaptive PCM</li></a>
+                                        <a href="differentialPCM.html"> <li>Differential PCM</li></a>
+                                    </ul>
+                                </li>
+    
+                                <li><a href="lineCoding.html">Line Coding</a></li>
+                                <li>
+                                    <label for="btn-4" class="third">Digital<span class="fas fa-caret-down"></span>Modulation    
+                                    </label>
+                                        <input type="checkbox" id="btn-4" class="butt3">
+    
+                                    <!-- sub sub category pcm -->
+                                    <ul class="DigMod">
+                                        <li><a href="ask.html">Amplitude Shift Keying(ASK)</a></li>
+                                        <li><a href="FSK.html">Frequency Shift Keying(FSK)</a></li>
+                                        <li><a href="BPSK.html">Binary Phase Shift Keying(BPSK)</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+    
+                        <li><a href="../../CaMTeS.html">About</a></li>
+                    </ul>
+    
+            </div> <!-- END of menu -->
+        </div> <!-- END of container2  -->
+    </div> <!-- END of TAB Style -->
+    
+
+<!-- For OVERVIEW TAB -->
+<div class="tabPanel">
+    <div id="container1">  <!-- START OF GRID -->
+            <div class="top1">Pulse Code Modulation <sub>(Analog Companding)</sub></div>
+            <div class="footer">
+                <p style="position: relative;
+                top: 2.3vh;">&copy; 2022 Saint Louis University. All rights reserved</p>
+            <div class="left">Found a bug <i class="fa-solid fa-bug"></i>?</div>  
+
+            </div> 
+
+            <div class="diagram">
+                <input type="checkbox" name="" id="checkBox" class="check_box" id="checkbox1" onclick="checkBoxVal()">
+                <div class="diagram_2">
+                <img src="Analog Companding PCM/diagram/PCM with Analog Companding.jpg" style="display: none;">
+                <img src="Analog Companding PCM/diagram/PCM-with-Analog-Companding.gif">
+            </div>
+
+            </div> <!-- END of diagram -->
+
+            <div class="cont">
+                <h1 id="subTitle">Overview</h1>
+                <p id="contP">There is an analog compression process in PCM with analog companding before the ADC. The analog input signal is applied to an analog compression process in the transmitter, resulting in a compressed analog signal. The output, compressed analog signal, is applied to the ADC. The ADC performs sampling, quantization, and encoding. As the ADC samples the analog signal, it generates an 8-bit PCM code for each sample.  In the receiver, there is an analog expansion after the DAC. The DAC receives the 8-bit PCM code and reconstructs a compressed analog signal. Afterward, it is applied to an analog expansion process. The output expanded signal is now the reconstructed analog signal input.
+
+                </p>
+
+            </div> <!-- END of cont -->
+    </div> <!-- END of Grid -->
+</div> <!-- END of Tab 1 -->       
+
+
+
+    <!-- For SIMULATOR TAB -->
+        <div class="tabPanel">
+            <div id="container">  <!-- START OF GRID -->
+                    <div class="top">PCM with Analog Companding</div>
+                    <!-- <div class="none"></div> -->
+                    <div class="footer"> <p style="position: relative;
+                        top: 2.3vh;">&copy; 2022 Saint Louis University. All rights reserved</p>
+                    <div class="left">Found a bug <i class="fa-solid fa-bug"></i>?</div> </div> 
+                        
+                    
+                        <div id="userDefined">
+                            <!-- FOR INPUT SIGNAL -->
+                            <h3 id="inputParam">SIGNAL PARAMETERS</h3>
+
+                                <div class="colorDivParam">
+                                   
+                                    <label for="sampleSyntax">Equation Format:<p id="eqnFormat"> A*cos(2*pi*F*t) </p>
+                                    </label>
+                                    <label for="Equation">Equation: </label>
+                                        <input type="text" name="inputEqn" id="inputEqn" value="2*sin(2*pi*1250*t)" oninput="this.value = this.value.replace(/[^0-9.-A*pit+()sincos-]/g, '').replace(/(\..*)\./g, '$1');"><br>
+                                    <label for="timeStart">Start Time: </label>
+                                        <input type="number" name="timeStart" id="timeStart" value="0"><br>
+                                    
+                                    <label for="numCycle"># of Cycles: </label>
+                                        <input type="number" name="Number of Cycles" id="numCycle" value="3"><br>
+                        
+                        
+                                    <!-- FOR SAMPLING -->
+                                    <h3>ADC PARAMETERS</h3>
+                                        <label for="samplingFrequency">Fs:</label>
+                                            <input type="number" name="samplingFrequency" id="samplingFrequency" value="8000" class="AdcDacBox" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"><br>
+                                
+                                        <!-- FOR QUANTIZATION -->
+                                        <label for="Vlsb">Vlsb:</label>
+                                            <input type="number" name="Vlsb" id="Vlsb" value="0.02" class="AdcDacBox"><br>
+                                    
+                                    <!-- FOR DAC -->
+                                    <h3>DAC PARAMETERS</h3>
+                                        <label for="Fsp">Fsp:</label>
+                                            <input type="number" name="Fsp" id="Fsp" value="8000" class="AdcDacBox" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"><br>
+                                        <label for="Vlsbp">Vlsbp</label>
+                                            <input type="number" name="Vlsbp" id="Vlsbp" value="0.02" class="AdcDacBox"><br>
+                                
+                                             <!-- COMPANDING -->
+                                    <h3>Analog Companding</h3>
+                                        
+
+                                    <label for="muVal" class="mu">µ (0-255) </label>
+                                    <input type="number" name="mu" id="muVal" class="mu" value="127" max="255" min="0">
+
+                                </div>  <!-- END colorDivParam -->
+                                    
+                                    <!-- SUBMIT -->
+                                        <button id="execute" onclick="executePCM()">SIMULATE</button><br>
+                                   
+                       </div>  <!-- END userDefined -->
+
+            <div class="userDefined2">
+                        <!-- FOR PLAYBACK -->
+                        <div class="playBack">
+                            <h3 id="elementColors1">PLAYBACK</h3>
+                            <div id="insideColor2"> 
+                                <label for=""><strong>Volume</strong></label><br>
+                                    <input type="range" value="0.1" min="0.0" max="0.5" step="0.01" id="volume"><br>
+                                <label for="">Duration (0-5)</label>
+                                    <input type="number" id="duration" value="3" style="float: none" max="5" min="0"><br><br>
+
+                                <button  onclick="playSoundPCM_1()" id="inputSignal">Input Signal</button><br>
+                                <button  onclick="playSoundPCM_2()" id="reconstructedSignal">Reconstructed Signal</button><br>
+                        </div> <!-- END of insideColor2 -->
+                    </div><br> <!-- END of playBack -->
+
+
+                        <div class="colorChange">
+                            <h3 id="elementColors">CUSTOM ELEMENTS</h3>
+                            
+
+                                <!-- FOR TWO WINDOW OPTIONS -->
+                                <div id="window">
+
+                                <select name="VIEWS" id="view" class="windowView" >
+                                    <option value="Single Window">Single Window</option>
+                                    <option value="Two Windows">Two Windows</option>
+                                </select><br>
+
+                                <div class="twoWindowOptions">
+
+                                <label for="First window option">Window 1:</label>
+                                <select name="First window option" id="firstWindowOpt" class="windowView">
+                                    <option value="Input Signal">Transmitted Signal</option>
+                                    <option value="Received Signal">Reconstructed Signal</option>
+                                    <option value="Sinusoid">Input Signal</option>
+                                    <option value="Sampling Signal">Sampling Signal</option>
+                                    <option value="Compressed Signal">Compressed Signal</option>
+                                </select><br>
+
+                                <label for="Second window option">Window 2:</label>
+                                <select name="Second window option" id="secondWindowOpt" class="windowView">
+                                    <option value="Input Signal">Transmitted Signal</option>
+                                    <option value="Received Signal">Reconstructed Signal</option>
+                                    <option value="Sinusoid">Input Signal</option>
+                                    <option value="Sampling Signal">Sampling Signal</option>
+                                    <option value="Compressed Signal">Compressed Signal</option>
+                                </select>
+
+                            </div>   <!-- END FOR TWO WINDOW OPTIONS -->
+                        </div>   <!-- END FOR  WINDOW OPTIONS -->   
+                
+                            <div id="insideColor">
+                                <label id="elemCol">Sampling: </label>
+                                    <input type="color" id="samplingValColor" onchange="executePCM2()" value="#FF1414">
+                                <label id="elemCol">Width: </label>
+                                    <input type="number" id="samplingThicc"  onchange="executePCM2()" value="13"><br>
+                                <label id="elemCol">Input: </label>
+                                    <input type="color" id="sinusoidValColor" onchange="executePCM2()" >
+                                <label id="elemCol">Width: </label>
+                                    <input type="number" id="sinusoidThicc"  onchange="executePCM2()" value="3"><br><br>
+                                <label id="elemCol">Rec. Values: </label>
+                                    <input type="color" id="DACsamplingValColor" onchange="executePCM2()"><br>
+                                <label id="elemCol">Staircase: </label>
+                                    <input type="color" id="DACstairCase" onchange="executePCM2()" >
+                                <label id="elemCol"> Width: </label>
+                                    <input type="number" id="stairThicc" onchange="executePCM2()" value="3"><br><br>
+                                <label class="mu">Comp.: </label>
+                                    <input type="color" class="mu" id="compressedValColor" onchange="executePCM2()">
+                                <label class="mu">Width: </label>
+                                    <input type="number" class="mu" id="compressedThicc" min="1" value="3" onchange="executePCM2()"><br>
+                            </div> <!-- END insideColor1 -->
+
+                            <div id="insideColor1">                                            
+                                <label id="elemCol">Background: </label>
+                                    <input type="color" id="bgColor" onchange="executePCM2()" value="#8EB0C6"><br>
+                                <label id="elemCol">Grid: </label>
+                                    <input type="color" id="gridColor" onchange="executePCM2()" value="#FFFFFF"><br>
+                                </div> <!-- END insideColor1 -->
+                            </div> <!-- END colorChange -->
+            </div> <!-- END userDefined2 -->
+                        
+                        <div class="plots"> 
+                            <div id="myPlot"></div>
+                            <div id="myPlot3"></div>
+                            <div id="myPlot4"></div> 
+                        </div>    
+                            
+                </div> <!-- END of Grid -->
+        </div> <!-- END of Tab 2 -->       
+</div> <!-- End TAB Style -->
+
+
+                    <script src="Libs/PCM Libs/pcmSound_3.js"></script>
+                    <script src="Libs/PCM Libs/currency.min.js"></script>
+                    <script src="Libs/Main Libs/jquery-3.6.0.min.js"></script>
+                    <script src="Libs/Main Libs/plotly-latest.min.js"></script>
+                    <script src="Analog Companding PCM/compandingFunctions.js"></script>
+                    <script src="Analog Companding PCM/basicPCMFunctions.js"></script>
+                
+                    <script>
+                        $(".twoWindowOptions").hide();
+                $("#view").on("change", function(){
+                if($("#view").val() == "Two Windows"){
+                console.log("two windows")
+                $(".twoWindowOptions").slideDown();
+                
+                }
+                else if($("#view").val() == "Single Window"){
+                console.log("one window")
+                $(".twoWindowOptions").slideUp();
+                
+                }
+                
+                })
+                    </script>
+<script>
+$(function () {
+    $("#muVal").keydown(function () {
+      // Save old value.
+      if (!$(this).val() || (parseInt($(this).val()) <= 255 && parseInt($(this).val()) >= 0))
+      $(this).data("old", $(this).val());
+    });
+    $("#muVal").keyup(function () {
+      // Check correct, else revert back to old value.
+      if (!$(this).val() || (parseInt($(this).val()) <= 255 && parseInt($(this).val()) >= 0))
+        ;
+      else
+        $(this).val($(this).data("old"));
+    });
+  });
+</script>
+<script>
+    $(function () {
+        $("#duration").keydown(function () {
+          // Save old value.
+          if (!$(this).val() || (parseInt($(this).val()) <= 5 && parseInt($(this).val()) >= 0))
+          $(this).data("old", $(this).val());
+        });
+        $("#duration").keyup(function () {
+          // Check correct, else revert back to old value.
+          if (!$(this).val() || (parseInt($(this).val()) <= 5 && parseInt($(this).val()) >= 0))
+            ;
+          else
+            $(this).val($(this).data("old"));
+        });
+      });
+    </script>
+                    <script src="Analog Companding PCM/analogCompanding.js"></script>
+
+                    <script>
+                        let checkCounter = 0;
+                                     function checkBoxVal(){
+                                         console.log($("#checkBox").val());
+                                         if($("#checkBox").val() === "on" && checkCounter === 0){
+                                             checkCounter = 1;
+                                            //  FOR JPG
+                                             $(".diagram_2").html('<img src="Analog Companding PCM/diagram/PCM with Analog Companding.jpg" />')
+                                             
+                                         }
+                                         else{
+                                             checkCounter = 0;
+                                            //  FOR GIF
+                                             $(".diagram_2").html('<img  src="Analog Companding PCM/diagram/PCM-with-Analog-Companding.gif" />')
+                 
+                                         }
+                                     }
+                         </script>
+
+<script>
+
+    $(document).ready(function(){
+           $('#btn').click(function(){
+               $(":not(#btn)").prop("checked",false,$('#btn').is(':checked'))
+               $('div .button span').toggleClass("rotate");
+
+               if($(".butt").prop("checked",false,$(".butt").is(":checked"))){
+                    $("div ul li span").removeClass("rotate");
+               }
+           });
+
+           $('.butt').click(function(){
+               $(":not(.butt,#btn)").prop("checked",false,$('.butt').is(':checked'))
+               $('div ul li .first span').toggleClass("rotate");
+
+               if($(".butt2").prop("checked",false,$(".butt2").is(":checked"))){
+                   $(".second span").removeClass("rotate");
+               }
+               if($(".butt3").prop("checked",false,$(".butt3").is(":checked"))) {
+                   $(".third span").removeClass("rotate");
+               }
+           });
+
+           $(".butt2").click(function(){
+               $(".butt3").prop("checked",false,$(".butt3").is(":checked"))
+               $('.second span').toggleClass("rotate");
+
+               if($(".butt3").prop("checked",false,$(".butt3").is(":checked"))){
+                   $('.third span').removeClass("rotate");
+               }
+           })
+
+           $(".butt3").click(function(){
+               $(".butt2").prop("checked",false,$(".butt2").is(":checked"))
+               $('.third span').toggleClass("rotate");
+
+               if($(".butt2").prop("checked",false,$(".butt2").is(":checked"))){
+                   $('.second span').removeClass("rotate");
+               }
+           })
+    });
+   </script>
+   
+</body>
+</html>

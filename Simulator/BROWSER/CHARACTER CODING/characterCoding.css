@@ -1,0 +1,1034 @@
+/* Remove body margins */
+body { 
+    margin: 0;   
+    background-color: #8f837387;  
+}
+
+/* Import FONTS */
+@font-face {
+
+    src: url(../Libs/FONTS/PressStart2P-Regular.ttf);
+
+    font-family: pressStart;
+}
+@font-face{
+
+    src: url(../Libs/FONTS/Jua-Regular.ttf);
+
+    font-family: jua;
+}
+@font-face{
+
+    src: url(../Libs/FONTS/PTSansCaption-Regular.ttf);
+
+    font-family: sans;
+}
+
+:root{
+    --fs-top: clamp(20px, 2vw + 13px, 1000px);
+    --fs-inputParam: clamp(10px, 0.7vw + 15px, 200px);
+    --fs-label: clamp(5px, 0.2vw + 14px, 100px);
+    --fs-h3: clamp(10px, 0.5vw + 18px, 100px);
+    --fs-elementColors: clamp(5px, 0.2vw + 18px, 100px);
+    -fs-elemCol: clamp(5px, 0.1vw + 5px, 100px);
+    --fs-cont:clamp(14px, 0.5vw + 10px, 200px);
+    --fs-footer: clamp(5px, 0.1vw + 15px, 100px);
+} 
+
+/* LOAD PAGE */
+.loader{
+    display: none;
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    height: 100%;
+    width: 60%;
+    min-width: 900px;
+    padding: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    z-index: 100;
+    justify-content: center;
+    background-color: rgba(59, 59, 59, 0.788);
+}
+
+/* test */
+.hide-loader{
+    display: none;
+}
+
+.camtes{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: 60%;
+    width: 30%;
+    padding: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    z-index: 100;
+    justify-content: center;
+    background-color: rgba(59, 59, 59, 0.788);
+}
+
+/* For General Tab Styling*/
+    .tabContainer{
+        width:fit-content;
+        height: fit-content;
+    }
+    .tabContainer .buttonContainer{
+        height: 100px;
+        width: 75vw;
+        border-top: 50px;
+    }
+    .tabContainer .buttonContainer button{
+        width: 10%;
+        height: 47%;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        position: relative;
+        top: 53px;
+        padding: 10px;
+        font-size: 18px;
+        font-family: sans;
+        transition: .2s linear;
+        background-color: #eee;
+        border-radius: 5px 20px 0px 0px;
+    }
+    
+    .tabContainer .buttonContainer button:hover{
+        background-color: #d7d4d4;
+    }
+
+    .tabContainer .tabPanel{
+        height: fit-content;
+        width: fit-content;
+        background-color: gray;
+        padding-top: 40px;
+        
+        box-sizing: border-box;
+        font-family: sans-serif;
+        font-size: 22px;
+    } 
+
+    .tabContainer .tabPanel .top{
+        color: white;
+    }
+
+    #topButton{
+        font-size: clamp(5px, 0.5vw + 12px, 800px);
+    }
+
+
+/* For OVERVIEW Tab */
+#container1{
+    display: grid; 
+    grid-gap: 20px;
+    grid-template-columns: 2fr; 
+    grid-template-rows: 0.02fr 2fr -2fr 0.7fr; 
+
+    grid-template-areas: 
+    "top1 "       
+    "diagram" 
+    "cont"
+    "footer"; 
+}
+/* FOR PAUSE PLAY */
+#checkBox{
+    cursor: pointer;
+
+    margin-top: 10px;
+    margin-left: 10px;
+    position: relative;
+    /* width: 3vw;
+    height: 2.5vh; */
+    width: 80px;
+    height: 40px;
+    -webkit-appearance: none;
+    background: #c6c6c6;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    /* transition: .5s; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    right: 38%;
+
+}
+
+#checkBox:checked{
+    background: #e5b44a;
+}
+#checkBox::before{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+   /*  width: 1.6vw;
+    height: 2.5vh; */
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    background: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: 0.5s
+}
+#checkBox:checked::before{
+    left: 40px;
+}
+
+.top1{
+    margin-bottom: 50px;
+    text-indent: 40px;
+    text-align: center;
+    
+
+    color: rgb(255, 255, 255);
+    font-family: pressStart;
+    
+    font-style: unset;
+    font-weight: bold;
+    font-size: clamp(20px, 2vw + 13px, 1000px);
+    text-shadow: 15px 7px rgb(112, 110, 110);
+    grid-area: top1;
+}
+
+.diagram{
+    grid-area: diagram;
+}
+
+.cont{
+    font-size: clamp(5px, 0.5vw + 16px, 800px);
+    line-height: 33px;
+    grid-area: cont;
+}
+
+    #subTitle{
+        color: rgb(242,242,248);
+        margin-left: 1.5%;
+        font-family: jua;
+        text-align: left;
+    }
+
+    #contP{
+        text-align: justify;
+        color: rgb(234,235,240);
+        margin-right: 70px;
+        margin-left: 40px;
+        text-indent: 2%;
+    }
+
+    img{
+        
+        width: 80%;
+        height: 90%;
+        border: outset 2px #e5b44a;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+.footer{
+    grid-area: footer;
+    text-align: center;
+    font-size: var(--fs-footer);
+    font-family: sans;
+}
+
+/* For SIMULATOR Tab */
+    /* color hover for "encode" */
+        button:hover{
+        background-color: rgba(16, 116, 46, 0.76);
+        color: rgb(253, 253, 253);
+    } 
+
+        button{
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+    /* START of grid */
+
+        #container{
+            display: grid; 
+          
+            grid-gap: 20px;
+            grid-template-columns: 2fr 0.2fr 2fr; 
+            grid-template-rows: 70px 0.12fr 0.12fr; 
+    
+            grid-template-areas: 
+            "top top top"       
+            "transmitter plots receiver" 
+            "footer footer footer"; 
+        }
+
+        /* "Character Coding"*/
+            .top{
+                text-indent: 10px;
+                font-family: pressStart;
+                text-shadow: 10px 5px rgb(83, 83, 83);
+                font-style: unset;
+                font-weight: bold;
+                font-size: var(--fs-top);
+                text-indent: 20px;
+                text-align: center;
+                grid-area: top;
+            }
+
+            #userDefined{
+                border: 5px outset;
+                height: fit-content;
+                background-color: #D7B26C;
+                margin-left: 30px;
+                border: 3px solid whitesmoke; 
+                border-radius: 15px;
+                grid-area: transmitter;
+            }
+
+            #userDefined1{
+                border: 5px outset;
+                height: fit-content;
+                width: 14vw;
+                background-color: #D7B26C;
+                border: 3px solid whitesmoke; 
+                border-radius: 15px;
+                grid-area: receiver;
+            }
+
+            .colorDivParam{
+                background-color: #ddc599;
+                padding: 8px;
+                font-size: var(--fs-label);
+               
+            }
+
+            .colorDivParam1{
+                background-color: #ddc599;
+                padding: 8px;
+                font-size: var(--fs-label);
+            }
+
+            .asciiChild{
+                margin-left: 30px;
+                font-family: sans;
+            }
+
+            select{
+                display: inline;
+                align-items: center;
+                height: fit-content;
+                width: fit-content;
+                cursor: pointer;
+            }
+
+            .ebcdicChild{
+                text-align: center;
+                margin-left: 30px;
+                font-family: sans;
+            }
+
+            #transmitSelect{
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+            #paritySelect{
+                margin-bottom: 40px;
+            }
+
+            input[type=text]{
+                min-width: 8.5vw;
+                max-width: 120px;
+                height: 2vh;
+                margin-left: 20px;
+                margin-top: 10px;
+            }
+
+            #asciiButton{
+                margin-left: 4vw;
+            }
+
+            h3{
+                font-family: jua;
+                padding: 0%;
+                margin: 6%;
+                margin-top: 30px;
+                text-align: center;
+                font-size: var(--fs-h3);
+            }
+
+            /*Word "TRANSMIT" in transmitter box*/
+            #transmitVal1{
+                text-align: left;
+                text-indent: 10px;
+                font-size: var(--fs-label);
+                }
+
+            /* 1-0 OUTPUT */
+            #outBitStream{
+                background-color: #a07832e5;
+                margin-top: 10px;
+                margin-bottom: 0%;
+                padding: 0%;
+                text-align: center;
+                color: white;
+                font-family: jua;
+            }
+
+            #asciiOutput{
+                line-height: 35px;
+                justify-content: center;
+                background-color: #a07832e5;
+                text-align: center;
+                height: 27vh;
+                padding: 25px;
+                overflow-y: scroll;
+                color: rgb(255, 255, 255);
+                font-weight: bold;
+               
+                margin-top: 0%;
+                margin-bottom: 30px;
+                grid-area: asciiOutput; 
+            }
+
+            .plots{
+                width:66vw;
+                height:fit-content;
+                border: solid 2px;
+                grid-area: plots;
+            }
+
+            #myPlotTable{
+                width:66vw;
+                height: 45vh;
+            }
+           
+            #Received{
+                text-align: left;
+                text-indent: 10px;
+                font-size: var(--fs-label);
+            }
+
+            #transmitVal2{
+                word-break: break-all;
+                padding: 10px;
+                height: 10vh;
+                overflow-y: scroll;
+                font-size: var(--fs-cont);
+            }
+
+            .ebcdicOutput{
+                word-break: break-all;
+                padding: 10px;
+                height: 10vh;
+                overflow-y: scroll;
+                font-size: var(--fs-cont);
+            }
+
+            .footer{
+                background-color: rgba(201, 192, 192, 0.075);
+                grid-area: footer;
+            }
+    /* END of grid */
+
+      /* ------------------------------------------------  1700PX  ------------------------------------------------ */
+      @media only screen and (max-width:1700px){
+        :root{
+            --fs-top: clamp(20px, 2vw + 18px, 1000px);
+            --fs-inputParam: clamp(10px, 0.7vw + 16px, 200px);
+            --fs-label: clamp(5px, 0.2vw + 10px, 100px);
+            --fs-h3: clamp(10px, 0.5vw + 11px, 100px);
+            --fs-elementColors: clamp(5px, 0.2vw + 18px, 100px);
+            -fs-elemCol: clamp(5px, 0.1vw + 6px, 100px);
+            --fs-cont:clamp(14px, 0.5vw + 10px, 200px);
+        }
+    
+    
+        /* OVERVIEW TAB */
+    /* FOR PAUSE PLAY 1700*/
+#checkBox{
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px;
+    position: relative;
+    /* width: 3vw;
+    height: 2.5vh; */
+    width: 60px;
+    height: 30px;
+    -webkit-appearance: none;
+    background: #c6c6c6;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    /* transition: .5s; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    right: 38%;
+
+}
+
+#checkBox:checked{
+    background: #e5b44a;
+}
+#checkBox::before{
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+   /*  width: 1.6vw;
+    height: 2.5vh; */
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    background: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: 0.5s
+}
+#checkBox:checked::before{
+    left: 30px;
+}
+
+    img{
+        width: 80%;
+        height: 90%;
+        border: outset 2px #e5b44a;
+    }
+
+    input[type=text]{
+        min-width: 7.8vw;
+        max-width: 142px;
+    }
+    
+    #asciiButton{
+        margin-left: 4vw;
+    }
+
+    .plots{
+        width:63vw;
+        height:fit-content;
+        border: solid 2px;
+        grid-area: plots;
+    }
+
+    #myPlotTable{
+        width:63vw;
+        height: 45vh;
+    }
+
+    #transmitVal1{
+        font-size: var(--fs-cont);
+    }
+
+    #transmitVal2{
+        word-break: break-all;
+        padding: 10px;
+        height: 10vh;
+        font-size: var(--fs-cont);
+    }
+
+    #Received{
+        font-size: var(--fs-cont);
+    }
+
+
+}
+
+/* ------------------------------------------------  1400PX  ------------------------------------------------ */
+@media only screen and (max-width:1400px){
+    :root{
+        --fs-top: clamp(20px, 2vw + 18px, 1000px);
+        --fs-inputParam: clamp(10px, 0.7vw + 16px, 200px);
+        --fs-label: clamp(5px, 0.2vw + 10px, 100px);
+        --fs-h3: clamp(10px, 0.5vw + 11px, 100px);
+        --fs-elementColors: clamp(5px, 0.2vw + 18px, 100px);
+        -fs-elemCol: clamp(5px, 0.1vw + 6px, 100px);
+        } 
+
+        /* For General Tab Styling*/
+    .tabContainer{
+        width:fit-content;
+        height: fit-content;
+    }
+
+
+    .tabContainer .buttonContainer{
+        height: 100px;
+        width: 98vw;
+        border-top: 50px;
+    }
+
+    .tabContainer .buttonContainer button{
+        width: 10%;
+        height: 47%;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        position: relative;
+        top: 53px;
+        padding: 10px;
+        font-size: 18px;
+        font-family: sans;
+        transition: .2s linear;
+        background-color: #eee;
+        border-radius: 5px 20px 0px 0px;
+    }
+
+    .tabContainer .buttonContainer button:hover{
+        background-color: #d7d4d4;
+    }
+
+    .tabContainer .tabPanel{
+        height: fit-content;
+        width: 100vw;
+        text-align: center;
+        padding-top: 40px;
+        
+        box-sizing: border-box;
+        font-family: sans-serif;
+        font-size: 22px;
+    } 
+
+    .tabContainer .tabPanel .top{
+        color: white;
+    }
+
+/* OVERVIEW TAB*/ 
+
+    img{
+        width: 80%;
+        height: 90%;
+        border: outset 2px #e5b44a;
+    }
+
+
+    .plots{
+        width:64vw;
+        height:fit-content;
+        border: solid 2px;
+        grid-area: plots;
+    }
+
+    #myPlotTable{
+        width:64vw;
+        height: 45vh;
+    }
+ 
+    #asciiButton{
+        margin-left: 1vw;
+    }
+    #userDefined{
+        width: 13vw;
+    }
+
+    .asciiChild{
+        margin-left: 0%;
+        font-family: sans;
+    }
+
+    #asciiText{
+        padding: 0%;
+        margin: 0%;
+    }
+
+    input[type=text]{
+        min-width: 6.8vw;
+        max-width: 118px;
+    }
+    
+    }
+
+     /* ------------------------------------------------  1024PX  ------------------------------------------------ */
+     @media only screen and (max-width:1024px){
+        :root{
+            --fs-top: clamp(20px, 2vw + 18px, 1000px);
+            --fs-inputParam: clamp(10px, 0.7vw + 16px, 200px);
+            --fs-label: clamp(5px, 0.2vw + 10px, 100px);
+            --fs-h3: clamp(10px, 0.5vw + 11px, 100px);
+            --fs-elementColors: clamp(5px, 0.2vw + 18px, 100px);
+            -fs-elemCol: clamp(5px, 0.1vw + 6px, 100px);
+            } 
+    
+            .tabContainer .buttonContainer{
+                height: 100px;
+                width: 97vw;
+                border-top: 50px;
+            }
+        
+            .tabContainer .buttonContainer button{
+                width: 14%;
+                height: 47%;
+                float: left;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                position: relative;
+                top: 53px;
+                padding: 10px;
+                font-size: 18px;
+                font-family: sans;
+                transition: .2s linear;
+                background-color: #eee;
+                border-radius: 5px 20px 0px 0px;
+            }
+        
+    
+    /* For OVERVIEW Tab */
+        /* FOR PAUSE PLAY 1024*/
+#checkBox{
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px;
+    position: relative;
+    /* width: 3vw;
+    height: 2.5vh; */
+    width: 40px;
+    height: 20px;
+    -webkit-appearance: none;
+    background: #c6c6c6;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    /* transition: .5s; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    right: 38%;
+
+}
+
+#checkBox:checked{
+    background: #e5b44a;
+}
+#checkBox::before{
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+   /*  width: 1.6vw;
+    height: 2.5vh; */
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    background: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: 0.5s
+}
+#checkBox:checked::before{
+    left: 20px;
+}
+#container1{
+    display: grid; 
+    grid-gap: 20px;
+    grid-template-columns: 2fr; 
+    grid-template-rows: 0.02fr 2fr -2fr 0.7fr; 
+
+    grid-template-areas: 
+    "top1 "       
+    "diagram" 
+    "cont"
+    "footer"; 
+}
+    
+    
+    .top1{
+        margin-left: 20px;
+        margin-bottom: 50px;
+        text-indent: 40px;
+        
+    
+        color: rgb(255, 255, 255);
+        font-family: pressStart;
+        
+        font-style: unset;
+        font-weight: bold;
+        font-size: clamp(20px, 2vw + 13px, 1000px);
+        text-shadow: 15px 7px rgb(112, 110, 110);
+        grid-area: top1;
+    }
+    
+    .diagram{
+        grid-area: diagram;
+    }
+    
+    .cont{
+        font-size: clamp(5px, 0.5vw + 16px, 800px);
+        line-height: 33px;
+        grid-area: cont;
+    }
+    
+        #subTitle{
+            color: rgb(242,242,248);
+            margin-left: 1.5%;
+            font-family: jua;
+            text-align: left;
+        }
+    
+        #contP{
+            text-align: justify;
+            color: rgb(234,235,240);
+            margin-right: 70px;
+            margin-left: 40px;
+            text-indent: 2%;
+        }
+    
+        img{
+            width: 80%;
+            height: 90%;
+            border: outset 2px #e5b44a;
+        }
+    
+    
+    .footer{
+        grid-area: footer;
+    }
+
+
+    .plots{
+        width:62.4vw;
+        height:fit-content;
+        border: solid 2px;
+        grid-area: plots;
+    }
+
+    #myPlotTable{
+        width:62.4vw;
+        height: 45vh;
+    }
+
+    #transmitVal2{
+        word-break: break-all;
+        padding: 10px;
+        height: 8vh;
+        overflow-y: scroll;
+        font-size: var(--fs-cont);
+    }
+
+    .ebcdicChild{
+        text-align: center;
+        margin-left: 0px;
+        font-family: sans;
+    }
+
+}
+
+
+/* ------------------------------------- 1000px ----------------------------------- */
+@media only screen and (max-width:1000px){
+
+    :root{
+        --fs-top: clamp(20px, 2vw + 15px, 1000px);
+        --fs-inputParam: clamp(10px, 0.7vw + 18px, 200px);
+        --fs-label: clamp(5px, 0.2vw + 13px, 100px);
+        --fs-h3: clamp(10px, 0.5vw + 17px, 100px);
+        --fs-cont:clamp(14px, 0.5vw + 12px, 200px);
+    } 
+
+    .tabContainer .buttonContainer button{
+        width: 35%;
+        height: 47%;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        position: relative;
+        top: 63px;
+        padding: 10px;
+        font-size: 18px;
+        font-family: sans;
+        transition: .2s linear;
+        background-color: #eee;
+        border-radius: 5px 20px 0px 0px;
+    }
+
+    .tabContainer .buttonContainer{
+        height:100px;
+        width: 30vw;
+        position: relative;
+        top: -10px;
+        margin: none;
+    }
+
+    .tabContainer {
+        height: fit-content;
+        width: 90vw;
+    }
+
+
+    /* For OVERVIEW Tab */
+    #container1{
+        display: grid; 
+        grid-gap: 20px;
+        grid-template-columns: 2fr; 
+        grid-template-rows: 0.02fr 2fr -2fr 0.7fr; 
+    
+        grid-template-areas: 
+        "top1 "       
+        "diagram" 
+        "cont"
+        "footer"; 
+    }
+
+    .top1{
+        margin-left: 20px;
+        margin-bottom: 50px;
+        text-indent: 20px;
+        text-align: left;
+
+        color: rgb(255, 255, 255);
+        font-family: pressStart;
+        
+        font-style: unset;
+        font-weight: bold;
+        font-size: clamp(20px, 2vw + 13px, 1000px);
+        text-shadow: 15px 7px rgb(112, 110, 110);
+        grid-area: top1;
+    }
+
+    .diagram{
+        grid-area: diagram;
+    }
+
+    .cont{
+        font-size: clamp(5px, 0.5vw + 16px, 800px);
+        line-height: 33px;
+        grid-area: cont;
+    }
+
+        #subTitle{
+            color: rgb(242,242,248);
+            margin-left: 12px;
+            font-family: jua;
+            text-align: left;
+        }
+
+        #contP{
+            text-align: justify;
+            color: rgb(234,235,240);
+            margin-right: 70px;
+            margin-left: 40px;
+        }
+
+        img{
+            width: 80%;
+            height: 95%;
+            border: outset 2px #e5b44a;
+        }
+
+
+    .footer{
+        grid-area: footer;
+    }
+    
+    
+    /* For SIMULATOR Tab */
+    #container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 0.2fr 0.6fr 1fr 0.1fr;
+        grid-gap: 30px;
+
+        grid-template-areas: 
+        "top top" 
+        "userDefined userDefined1"
+        "plots plots"
+        "footer footer"
+    }
+
+/* "Character Coding"*/
+    .top{
+        text-indent: 10px;
+        font-family: pressStart;
+        text-shadow: 10px 5px rgb(83, 83, 83);
+        font-style: unset;
+        font-weight: bold;
+        font-size: var(--fs-top);
+        text-indent: 20px;
+        text-align: center;
+        grid-area: top;
+    }
+
+    #userDefined{
+        border: 5px outset;
+        height: fit-content;
+        width: 40vw;
+        background-color: #D7B26C;
+        margin-left: 30px;
+        border: 3px solid whitesmoke; 
+        border-radius: 15px;
+        grid-area: userDefined;
+    }
+
+    #userDefined1{
+        border: 5px outset;
+        height: fit-content;
+        width: 40vw;
+        margin-left: 30px;
+        background-color: #D7B26C;
+        border: 3px solid whitesmoke; 
+        border-radius: 15px;
+        grid-area: userDefined1;
+    }
+
+    br{
+        display: none;
+    }
+
+    #transmitVal2 {
+        word-break: break-all;
+        padding: 10px;
+        height: 12vh;
+        overflow-y: scroll;
+        font-size: var(--fs-cont);
+    }
+
+    .ebcdicOutput {
+        word-break: break-all;
+        padding: 10px;
+        height: 26vh;
+        overflow-y: scroll;
+        font-size: var(--fs-cont);
+    }
+
+h3{
+    font-size: var(--fs-h3);
+}
+
+#Received {
+    font-size: var(--fs-label);
+}
+
+#transmitVal1{
+    font-size: var(--fs-label);
+}
+
+    .asciiChild{
+        margin: 0%;
+    }
+    .plots{
+        margin-left: 30px;
+        width:92vw;
+        height:fit-content;
+        border: solid 2px;
+        grid-area: plots;
+    }
+
+    #myPlotTable{
+        width:92vw;
+    }
+
+
+    .footer{
+        background-color: rgba(201, 192, 192, 0.075);
+        grid-area: footer;
+    }
+}

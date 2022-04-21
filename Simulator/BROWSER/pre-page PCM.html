@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="menu/pre-page PCM.css">
+    <script src="menu/button.js"></script>
+    <script src="menu/pre-page PCM.js"></script>
+    <script src="menu/jquery-3.6.0.js"></script>
+    <link rel="shortcut icon" type="x-icon" href="menu/CaMTS.png">
+    <img src="Adaptive Delta PCM/loading/Main Logo CaMTS Logo.gif" class="camtes">
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+
+    <title>TYPE OF PCM</title>
+</head>
+
+<body>
+<div class="container">
+    <h1 id="title">PULSE CODE MODULATION</h1>
+    
+    <div class="category">
+       <a href="BasicPCM.html"><h2  class="box" id="PCM">Basic PCM</h2>  </a> 
+       <a href="analogCompanding.html"><h2 class="box" id="AnaComp">PCM with Analog Companding </h2></a> 
+       <a href="digitalCompanding.html"><h2 class="box" id="DigiComp">PCM with Digital Companding</h2></a> 
+        <a href="deltaPCM.html"><h2 class="box" id="Del">Delta PCM</h2></a> 
+        <a href="adaptiveDelta.html"><h2 class="box" id="AdapDel">Adaptive Delta PCM</h2></a> 
+        <a href="differentialPCM.html"><h2 class="box" id="diff">Differential PCM</h2></a> 
+</div>
+    <a href="../mainFlexPage.html"<button id="back"> <i class="fa-solid fa-rotate-left"></i> RETURN</button></a>
+</div>
+
+<script>
+    $(".camtes").css("display", "flex" );
+  $(document).ready(function(){
+    $(".camtes").delay(1000); // simulate loading time
+              $(".camtes").fadeOut();
+  });
+</script>
+
+</body>
+</html>

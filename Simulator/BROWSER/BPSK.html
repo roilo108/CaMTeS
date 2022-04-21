@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="BPSK/BPSK.css">
+    <link rel="stylesheet" href="menu/menuButton.css">
+    <link rel="shortcut icon" type="x-icon" href="menu/CaMTS.png">
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="menu/seesaw_digiMod.css">
+    <script src="menu/jquery-3.6.0.js"></script>
+    <script src="menu/button.js"></script>
+
+    <img src="BPSK/loading/loader.gif" class="loader">
+    <img src="BPSK/loading/Main Logo CaMTS Logo.gif" class="camtes">
+
+    <title>BINARY PHASE SHIFT KEYING</title>
+    <script>
+        $(".camtes").css("display", "flex" );
+      $(document).ready(function(){
+        $(".camtes").delay(1000); // simulate loading time
+                  $(".camtes").fadeOut();
+      });
+    </script>
+
+
+<!-- For TAB Style -->
+<div class="tabContainer">
+    <div class="buttonContainer">
+        <button  id="topButton" onclick="showPanel(0,'#73303C')">Overview</button>
+        <button  id="topButton" onclick="showPanel(1,'#C15C71')">Simulator</button>
+
+        <div id="container2">
+            <div class="menu">
+                <label for="btn" class="button">MENU
+                    <span class="fas fa-caret-down"></span>
+                </label>
+                    <input type="checkbox" id="btn" class="firstInput">
+                
+                    <ul class="ClickMenu">
+                        <li><a href="../mainFlexPage.html">Home</a></li>
+                        <li>
+                            <label for="btn-2" class="first">Simulators
+                                <span class="fas fa-caret-down"></span>
+                            </label>
+                                <input type="checkbox" id="btn-2" class="butt">
+                            
+                            <ul>
+                                <li><a href="characterCoding.html">Character Coding</a></li>
+                                <li>
+                                    <label for="btn-3" class="second">Pulse Code <span class="fas fa-caret-down"></span>Modulation  
+                                    </label>
+                                        <input type="checkbox" id="btn-3" class="butt2">
+    
+                                    <!-- sub sub category pcm -->
+                                    <ul class="subCat">
+                                        <a href="BasicPCM.html"><li>Basic PCM</li></a>
+                                        <a href="analogCompanding.html"><li>PCM with Analog Companding</li></a>
+                                        <a href="digitalCompanding.html"><li>PCM with Digital Companding</li></a>
+                                        <a href="deltaPCM.html"><li>Delta PCM</li></a>
+                                        <a href="adaptiveDelta.html"><li>Adaptive PCM</li></a>
+                                        <a href="differentialPCM.html"> <li>Differential PCM</li></a>
+                                    </ul>
+                                </li>
+    
+                                <li><a href="lineCoding.html">Line Coding</a></li>
+                                <li>
+                                    <label for="btn-4" class="third">Digital<span class="fas fa-caret-down"></span>Modulation    
+                                    </label>
+                                        <input type="checkbox" id="btn-4" class="butt3">
+    
+                                    <!-- sub sub category pcm -->
+                                    <ul class="DigMod">
+                                        <li><a href="ask.html">Amplitude Shift Keying(ASK)</a></li>
+                                        <li><a href="FSK.html">Frequency Shift Keying(FSK)</a></li>
+                                        <li><a href="BPSK.html">Binary Phase Shift Keying(BPSK)</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+    
+                        <li><a href="../../CaMTeS.html">About</a></li>
+                    </ul>
+    
+            </div> <!-- END of menu -->
+        </div> <!-- END of container2  -->
+    </div> <!-- END of TAB Style -->
+
+
+    <!-- For OVERVIEW TAB -->
+    <div class="tabPanel">
+        <div id="container1">  <!-- START OF GRID -->
+                <div class="top1">Binary Phase Shift Keying<sub>(BPSK)</sub></div>
+                <div class="footer"><p style="position: relative;
+                    top: 2.3vh;">&copy; 2022 Saint Louis University. All rights reserved</p>
+                <div class="left">Found a bug <i class="fa-solid fa-bug"></i>?</div>  </div> 
+
+                <div class="diagram">
+                    <input type="checkbox" name="" id="checkBox" class="check_box" id="checkbox1" onclick="checkBoxVal()">
+
+                    <div class="diagram_2">
+                        <img src="BPSK/diagram/BPSK.jpg" alt="" style="display: none;">
+                        <img src="BPSK/diagram/BPSK.gif" alt="">
+                    </div>
+                </div> <!--END of diagram -->
+
+                <div class="cont">
+                    <h1 id="subTitle">Overview</h1>
+                    <p id="contP">The balanced modulator with the carrier sine wave as one input and the binary sequence as the second input makes up the Binary Phase Shift Keying modulator. The modulation is performed with a balanced modulator, which multiplies the two input signals. The phase reversal for a zero binary input is 0°, while for high binary input, it is 180°. The direct input carrier or the inverted 180°phase shifted input carrier, a function of the data signal, will be the modulator's output sine wave.
+                    </p>
+                    <p id="contP">The demodulator is composed of a mixer with a local oscillator circuit, a bandpass filter, and a two-input detector circuit. With the help of the mixer circuit and the bandpass filter, the first stage of demodulation is performed by recovering the band-limited message signal. It is possible to obtain a band-limited baseband signal. The binary message bitstream is regenerated using this signal. The bit clock rate is required at the detector circuit in the following stage of demodulation to produce the original binary message signal. Bit clock regeneration is simplified if the bit rate is a sub-multiple of the carrier frequency.
+                    </p>
+                </div> <!-- END of cont -->
+
+        </div> <!-- END of Grid -->
+    </div> <!-- END of Tab 1 -->       
+
+
+    <!-- For SIMULATOR TAB -->
+    <div class="tabPanel">
+        <div id="container">  <!-- START OF GRID -->
+            <div class="top">Binary Phase Shift Keying</div>
+            <div class="none"></div>
+            <div class="footer"><p style="position: relative;
+                top: 2.3vh;">&copy; 2022 Saint Louis University. All rights reserved</p>
+            <div class="left">Found a bug <i class="fa-solid fa-bug"></i>?</div>  </div> 
+                
+            
+        <div id="userDefined">
+            <!-- FOR USER INPUTS -->
+            <h3 id="inputParam">SIGNAL PARAMETERS</h3>
+            
+            <div class="colorDivParam">
+                <div class="dropDown1">
+                    <label for="Pre-defined Bits" id="preDefBits2">Pre-defined Bits</label><br>
+                        <select name="enableDisable" id="enableDisable">
+                            <option value="Disable">Disable </option>
+                            <option value="Enable">Enable</option>
+                        </select><br>
+                    
+                        <!-- Appear if enabled -->
+                        <div id="showBitParams">
+                            <select name="preDefBits" id="preDefBits">
+                                <option value="Random Bits">Random Bits</option>
+                                <option value="Alternate Bits (01)">Alternate Bits (10)</option>
+                                <option value="Alternate Bits (10)">Alternate Bits (01)</option>
+                                <option value="All Ones">All Ones</option>
+                                <option value="All Zeros">All Zeros</option>
+                            </select><br>
+
+                        <label for="numBits" id="numBits2">Number of Bits:</label><br>
+                            <input type="number" name="numBits" id="numBits">
+                       
+                            <button id="generateBits" onclick="generateBits()">GENERATE</button><br>
+                </div>  <!-- END dropDown1 -->
+
+                        </div> <!-- END of showBitParams -->
+              
+
+                        
+                <label for="binaryInput">Bitstream: </label><br>
+                    <input id="binaryInput" type="text" value="101010101010" oninput="this.value = this.value.replace(/[^0-1]/g, '').replace(/(\..*)\./g, '$1');"><br><br>
+                <label for="amplitudeMark">Amplitude: </label>
+                    <input id="amplitudeMark" type="text" value="5" oninput="this.value = this.value.replace(/[^0-9.-]/g, '').replace(/(\..*)\./g, '$1');"><br>
+                <label for="bitrateInput">Bit rate: </label>
+                    <input id="bitrateInput" type="text" value ="1000" oninput="this.value = this.value.replace(/[^0-9.-]/g, '').replace(/(\..*)\./g, '$1');"><br>
+                <label for="carrierFrequency">Carrier Freq: </label>
+                    <input id="carrierFrequency" type="text" value ="2000" oninput="this.value = this.value.replace(/[^0-9.-]/g, '').replace(/(\..*)\./g, '$1');"><br>
+                <label for="fmin">fmin: </label>
+                    <input id="fmin" type="text" value ="0" oninput="this.value = this.value.replace(/[^0-9.-]/g, '').replace(/(\..*)\./g, '$1');"><br>
+                <label for="fmax">fmax: </label>
+                    <input id="fmax" type="text" value ="4000" oninput="this.value = this.value.replace(/[^0-9.-]/g, '').replace(/(\..*)\./g, '$1');"><br>
+                
+                
+            </div>  <!-- END of colorDivParam -->
+
+                <!--LOADING SCREEN-->    
+                <button id="execute" onclick="simulate()"> SIMULATE </button><br><br>
+
+        </div>  <!-- END userDefined -->  
+    
+
+    
+        <!-- FOR CUSTOM ELEMENTS -->
+        <div class="colorChange">
+            <h3 id="elementColors">CUSTOM ELEMENTS</h3>
+
+             <!-- FOR MODULATING -->
+             <p id="customTitle">Modulating Signal</p>
+             <div id="insideColor">
+             <label id="elemCol"> Signal: </label>
+                 <input type="color" id="modulatingSig" onchange="simulateOnChange()">
+             <label id="elemCol">Width: </label>
+                 <input type="number" id="modulatingSigThicc" value="3" onchange="simulateOnChange()"><br>
+                </div> <!-- END insideColor -->         
+
+                 <!-- FOR CARRIER -->
+         <p id="customTitle">Carrier Signal</p>
+         <div id="insideColor">
+             <label id="elemCol"> Signal: </label>
+                 <input type="color" id="carrierSig" onchange="simulateOnChange()">
+             <label id="elemCol">Width: </label>
+                 <input type="number" id="carrierSigThicc" value="3" onchange="simulateOnChange()"><br>
+                </div> <!-- END insideColor -->         
+
+
+                <p id="customTitle">Modulated Signal</p>
+                    <div id="insideColor">
+                        <label id="elemCol">Signal: </label>
+                            <input type="color" id="TXsig" value="#FF1414" onchange="simulateOnChange()">
+                        <label id="elemCol">Width: </label>
+                            <input type="number" id="TXsigThicc"  value="3" onchange="simulateOnChange()"><br>
+                    </div> <!-- END insideColor -->         
+                                    
+                <p id="customTitle">Frequency Domain</p>
+                    <div id="insideColor">
+                        <label id="elemCol">Signal: </label>
+                            <input type="color" id="TXmag" value="#FF1414" onchange="simulateOnChange()" >
+                        <label id="elemCol">Width: </label>
+                            <input type="number" id="TXmagThicc" value="3" onchange="simulateOnChange()"><br>
+                    </div> <!-- END insideColor1 -->   
+
+                <p id="customTitle">Output of Product Modulator</p>
+                    <div id="insideColor">
+                        <label id="elemCol">Signal: </label>
+                            <input type="color" id="prodSig" value="#3FB21F" onchange="simulateOnChange()"  >
+                        <label id="elemCol">Width: </label>
+                            <input type="number" id="prodSigThicc" value="3" onchange="simulateOnChange()"><br>
+                    </div> <!-- END insideColor2 -->       
+                             
+                <p id="customTitle">Demodulated Signal</p>
+                    <div id="insideColor">
+                        <label id="elemCol">Signal: </label>
+                            <input type="color" id="demSig" onchange="simulateOnChange()">
+                        <label id="elemCol">Width: </label>
+                            <input type="number" id="demSigThicc" value="3" onchange="simulateOnChange()"><br>
+                    </div> <!-- END insideColor3 -->  
+
+
+                <!-- FOR BG COLOR -->
+                <div id="insideColor4">   
+                    <label id="elemCol">Background: </label>
+                        <input type="color" id="bgColor" value="#BB96A3" onchange="simulateOnChange()"><br>
+                    <label id="elemCol">Grid: </label>
+                        <input type="color" id="gridColor" value="#FFFFFF" onchange="simulateOnChange()"><br>
+                 </div> <!-- END insideColor4 -->  
+
+        </div> <!-- END colorChange -->
+
+        <!-- FOR PLOTLY -->
+        <div class="plots"> 
+            <div id="myPlotModulating"></div>
+            <div id="myPlotCarrier"></div>
+            <div id="myPlotTimeDom" ></div>
+            <div id="myPlotFreqDom"></div>
+            <div id="myPlotProductDom"></div>
+            <div id="myPlotFilteredEnvelope"></div>
+        </div> <!-- END plotly -->
+
+        
+     </div> <!-- END of Grid -->
+</div> <!-- END of Tab 2 -->       
+</div> <!-- End TAB Style -->
+
+    <script src="Libs/Channel Coding Libs/generateBits.js"></script>
+    <script src="Libs/Channel Coding Libs/math.js"></script>
+    <script src="Libs/Channel Coding Libs/fili.min.js"></script>
+    <script src="Libs/Channel Coding Libs/bundleIIR.js"></script>
+    <script src="Libs/Main Libs/jquery-3.6.0.min.js"></script>
+    <script src="Libs/Main Libs/plotly-latest.min.js"></script>
+    <script src="BPSK/libs/dtft_BPSK_final.js"></script>
+    <script src="BPSK/BPSK.js"></script>
+    <script>
+                       $("#showBitParams").hide();
+        $("#enableDisable").on("change", function(){
+            if($("#enableDisable").val() == "Enable"){
+            console.log($("#enableDisable").val())
+                $("#showBitParams").slideDown();
+            }
+                    
+            else if($("#enableDisable").val() == "Disable"){
+            console.log($("#enableDisable").val())
+                $("#showBitParams").slideUp();
+            }
+            })
+    </script>
+<script>
+    let checkCounter = 0;
+                 function checkBoxVal(){
+                     console.log($("#checkBox").val());
+                     if($("#checkBox").val() === "on" && checkCounter === 0){
+                         checkCounter = 1;
+                        //  FOR JPG
+                         $(".diagram_2").html('<img src="BPSK/diagram/BPSK.jpg" />')
+                         
+                         console.log(checkCounter);
+                     }
+                     else{
+                         checkCounter = 0;
+                        //  FOR GIF
+                         $(".diagram_2").html('<img  src="BPSK/diagram/BPSK.gif" />')
+
+                         console.log(checkCounter)
+                     }
+                 }
+     </script>
+
+<script>
+
+    $(document).ready(function(){
+           $('#btn').click(function(){
+               $(":not(#btn)").prop("checked",false,$('#btn').is(':checked'))
+               $('div .button span').toggleClass("rotate");
+
+               if($(".butt").prop("checked",false,$(".butt").is(":checked"))){
+                    $("div ul li span").removeClass("rotate");
+               }
+           });
+
+           $('.butt').click(function(){
+               $(":not(.butt,#btn)").prop("checked",false,$('.butt').is(':checked'))
+               $('div ul li .first span').toggleClass("rotate");
+
+               if($(".butt2").prop("checked",false,$(".butt2").is(":checked"))){
+                   $(".second span").removeClass("rotate");
+               }
+               if($(".butt3").prop("checked",false,$(".butt3").is(":checked"))) {
+                   $(".third span").removeClass("rotate");
+               }
+           });
+
+           $(".butt2").click(function(){
+               $(".butt3").prop("checked",false,$(".butt3").is(":checked"))
+               $('.second span').toggleClass("rotate");
+
+               if($(".butt3").prop("checked",false,$(".butt3").is(":checked"))){
+                   $('.third span').removeClass("rotate");
+               }
+           })
+
+           $(".butt3").click(function(){
+               $(".butt2").prop("checked",false,$(".butt2").is(":checked"))
+               $('.third span').toggleClass("rotate");
+
+               if($(".butt2").prop("checked",false,$(".butt2").is(":checked"))){
+                   $('.second span').removeClass("rotate");
+               }
+           })
+    });
+   </script>
+   
+</head>
+
+
+<body>
+   
+</body>
+</html>

@@ -1,0 +1,205 @@
+body { 
+    margin: 0; 
+    background-color: #3b3b3b9c;  
+}
+
+/* Import FONTS */
+@font-face {
+    src: url(../Libs/FONTS/PressStart2P-Regular.ttf);
+    font-family: pressStart;
+}
+@font-face{
+    src: url(../Libs/FONTS/Jua-Regular.ttf);
+    font-family: jua;
+}
+@font-face{
+    src: url(../Libs/FONTS/PTSansCaption-Regular.ttf);
+    font-family: sans;
+}
+
+.camtes{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: 60%;
+    width: 30%;
+    padding: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    z-index: 100;
+    justify-content: center;
+    background-color: rgba(59, 59, 59, 0.788);
+}
+
+.container{
+    display: grid; 
+  
+    grid-gap: 50px;
+    grid-template-columns: 2fr; 
+    grid-template-rows: 0.2fr 1fr  0.2fr; 
+
+    grid-template-areas: 
+    "title"
+    " first "       
+    " second " ;  
+}
+
+.container{
+    text-align: center;
+    margin-top: 2vw;
+}
+
+#title{
+    
+    text-shadow: 5px 7px rgb(255, 255, 255);
+    font-family: pressStart;
+    font-size: clamp(20px, 3vw + 15px, 1000px);
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+#PCM{
+    
+    cursor: pointer;
+    font-family: sans;
+   border: 5px outset black;
+   padding: 2%;
+    grid-area: first;
+    background-color: #2f82c6c2;
+}
+
+#AnaComp{
+    cursor: pointer;
+    background-color: #276ca5ce;
+    font-family: sans;
+    border: 5px outset black;
+    padding: 2%;
+    grid-area: first;
+}
+
+#DigiComp{
+    cursor: pointer;
+    background-color: #225580d5;
+    font-family: sans;
+    border: 5px outset black;
+   padding: 2%;
+   grid-area: first;
+}
+
+#Del{
+    cursor: pointer;
+    background-color: #184C77;
+    font-family: sans;
+    border: 5px outset black;
+   padding: 2%;
+   grid-area: first;
+}
+
+#AdapDel{
+    cursor: pointer;
+    background-color: #113655;
+    font-family: sans;
+    border: 5px outset black;
+   padding: 2%;
+   grid-area: first;
+}
+
+#diff{
+    cursor: pointer;
+    background-color: #0B2132;
+    font-family: sans;
+    border: 5px outset black;
+   padding: 2%;
+   grid-area: first;
+}
+
+.category:hover .box{
+    filter:blur(3px);
+    opacity:.5;
+    transform: scale(.98);
+    box-shadow:none;
+  }
+
+.container #PCM:hover{
+    color: white;
+    transform:scale(1);
+  filter:blur(0px);
+  opacity:1;
+  box-shadow:0 8px 20px 0px rgba(0,0,0,0.125);
+}
+
+
+
+.container #AnaComp:hover{
+    
+    color: white;
+    transform:scale(1);
+    filter:blur(0px);
+    opacity:1;
+    box-shadow:0 8px 20px 0px rgba(0,0,0,0.125);
+}
+
+
+
+.container #DigiComp:hover{
+    color: white;
+    transform:scale(1);
+filter:blur(0px);
+opacity:1;
+box-shadow:0 8px 20px 0px rgba(0,0,0,0.125);
+}
+
+.container #Del:hover{
+    color: white;
+    transform:scale(1);
+filter:blur(0px);
+opacity:1;
+box-shadow:0 8px 20px 0px rgba(0,0,0,0.125);
+}
+
+.container #AdapDel:hover{
+    color: white;
+    transform:scale(1);
+filter:blur(0px);
+opacity:1;
+box-shadow:0 8px 20px 0px rgba(0,0,0,0.125);
+}
+
+.container #diff:hover{
+    color: white;
+    transform:scale(1);
+filter:blur(0px);
+opacity:1;
+box-shadow:0 8px 20px 0px rgba(0,0,0,0.125);
+}
+
+
+
+
+
+
+
+
+#back{
+    font-family: sans;
+    font-size: clamp(9px, 0.7vw + 9px, 1000px);
+    width: fit-content;
+    height: fit-content;
+    padding: 15px;
+    display: inline;
+    justify-self: center;
+  border-radius: 30px;
+  cursor: pointer;
+  grid-area: second;
+}
+
+#back:hover{
+    background-color: #00000034;
+    color: #e6e6e649;
+}
+
+
+

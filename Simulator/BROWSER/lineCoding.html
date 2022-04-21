@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="Line Coding/lineCoding.css">
+    <link rel="stylesheet" href="menu/menuButton.css">
+    <link rel="shortcut icon" type="x-icon" href="menu/CaMTS.png">
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="menu/seesaw_LineCoding.css">
+    <script src="menu/jquery-3.6.0.js"></script>
+    <script src="menu/button.js"></script>
+    <script src="Libs/Channel Coding Libs/generateBits.js"></script>
+
+
+    <img src="Line Coding/loading/loader.gif" class="loader">
+    <img src="Line Coding/loading/Main Logo CaMTS Logo.gif" class="camtes">
+    <script>
+        $(".camtes").css("display", "flex" );
+      $(document).ready(function(){
+        $(".camtes").delay(1000); // simulate loading time
+                  $(".camtes").fadeOut();
+      });
+    </script>
+    <title>LINE CODING</title>
+    
+</head>
+<body>
+
+
+<!-- For TAB Style -->
+<div class="tabContainer">
+    <div class="buttonContainer">
+        <button onclick="showPanel(0,'#104F55')">Overview</button>
+        <button onclick="showPanel(1,'#417D6F')">Simulator</button>
+
+        <div id="container2">
+            <div class="menu">
+                <label for="btn" class="button">MENU
+                    <span class="fas fa-caret-down"></span>
+                </label>
+                    <input type="checkbox" id="btn" class="firstInput">
+                
+                    <ul class="ClickMenu">
+                        <li><a href="../mainFlexPage.html">Home</a></li>
+                        <li>
+                            <label for="btn-2" class="first">Simulators
+                                <span class="fas fa-caret-down"></span>
+                            </label>
+                                <input type="checkbox" id="btn-2" class="butt">
+                            
+                            <ul>
+                                <li><a href="characterCoding.html">Character Coding</a></li>
+                                <li>
+                                    <label for="btn-3" class="second">Pulse Code <span class="fas fa-caret-down"></span>Modulation  
+                                    </label>
+                                        <input type="checkbox" id="btn-3" class="butt2">
+    
+                                    <!-- sub sub category pcm -->
+                                    <ul class="subCat">
+                                        <a href="BasicPCM.html"><li>Basic PCM</li></a>
+                                        <a href="analogCompanding.html"><li>PCM with Analog Companding</li></a>
+                                        <a href="digitalCompanding.html"><li>PCM with Digital Companding</li></a>
+                                        <a href="deltaPCM.html"><li>Delta PCM</li></a>
+                                        <a href="adaptiveDelta.html"><li>Adaptive PCM</li></a>
+                                        <a href="differentialPCM.html"> <li>Differential PCM</li></a>
+                                    </ul>
+                                </li>
+    
+                                <li><a href="lineCoding.html">Line Coding</a></li>
+                                <li>
+                                    <label for="btn-4" class="third">Digital<span class="fas fa-caret-down"></span>Modulation    
+                                    </label>
+                                        <input type="checkbox" id="btn-4" class="butt3">
+    
+                                    <!-- sub sub category pcm -->
+                                    <ul class="DigMod">
+                                        <li><a href="ask.html">Amplitude Shift Keying(ASK)</a></li>
+                                        <li><a href="FSK.html">Frequency Shift Keying(FSK)</a></li>
+                                        <li><a href="BPSK.html">Binary Phase Shift Keying(BPSK)</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+    
+                        <li><a href="../../CaMTeS.html">About</a></li>
+                    </ul>
+    
+            </div> <!-- END of menu -->
+        </div> <!-- END of container2  -->
+    </div> <!-- END of TAB Style -->
+    
+
+    <!-- For OVERVIEW TAB -->
+    <div class="tabPanel">
+        <div id="container1">  <!-- START OF GRID -->
+                <div class="top1">Line Coding</div>
+                <div class="footer">	 <p style="position: relative;
+                    top: 2.3vh;">&copy; 2022 Saint Louis University. All rights reserved</p>
+                <div class="left">Found a bug <i class="fa-solid fa-bug"></i>?</div>  </div> 
+
+                <div class="diagram">
+                    <input type="checkbox" name="" id="checkBox" class="check_box" id="checkbox1" onclick="checkBoxVal()">
+                    <div class="diagram_2">
+                    <img src="Line Coding/diagram/Line Coding.jpg" style="display: none;">
+                    <img src="Line Coding/diagram/Line-Coding.gif">
+                </div>
+                </div> <!--END of diagram -->
+
+                <div class="cont">
+                    <h1 id="subTitle">Overview</h1>
+                    <p id="contP">Line coding is the process of converting digital data to digital signals. Using this technique a series of bits can be converted to a digital signal. Digital data are encoded into a digital signal at the transmitter side. At the receiver, the digital data is detected from the digital signal by decoding.</p>
+                </div> <!-- END of cont -->
+
+        </div> <!-- END of Grid -->
+    </div> <!-- END of Tab 1 -->       
+
+
+
+    <!-- For SIMULATOR TAB -->
+    <div class="tabPanel">
+        <div id="container">  <!-- START OF GRID -->
+                <div class="top">Line Coding</div>
+                <div class="none"></div>
+                <div class="footer">	 <p style="position: relative;
+                    top: 2.3vh;">&copy; 2022 Saint Louis University. All rights reserved</p>
+                <div class="left">Found a bug <i class="fa-solid fa-bug"></i>?</div>  </div> 
+
+
+        <div id="userDefined">
+            <!-- FOR INPUT SIGNAL -->
+            <h3 id="inputParam">SIGNAL PARAMETERS</h3>
+            <div class="colorDivParam">
+                <div class="dropDown1">
+                    <label for="Pre-defined Bits" id="preDefBits2">Pre-defined Bits</label><br>
+                        <select name="enableDisable" id="enableDisable">
+                            <option value="Disable">Disable </option>
+                            <option value="Enable">Enable</option>
+                        </select><br>
+                    
+                        <!-- Appear if enabled -->
+                        <div id="showBitParams">
+                            <select name="preDefBits" id="preDefBits">
+                                <option value="Random Bits">Random Bits</option>
+                                <option value="Alternate Bits (01)">Alternate Bits (10)</option>
+                                <option value="Alternate Bits (10)">Alternate Bits (01)</option>
+                                <option value="All Ones">All Ones</option>
+                                <option value="All Zeros">All Zeros</option>
+                            </select><br>
+
+                        <label for="numBits" id="numBits2">Number of Bits:</label><br>
+                            <input type="number" name="numBits" id="numBits">
+                       
+                            <button id="generateBits" onclick="generateBits()">GENERATE</button><br>
+                </div>  <!-- END dropDown1 -->
+
+                        </div> <!-- END of showBitParams -->
+
+
+                <label for="binaryInput">Bitstream: </label>
+                    <input type="text" id="binaryInput" value="110010" oninput="this.value = this.value.replace(/[^0-1]/g, '').replace(/(\..*)\./g, '$1');"><br><br><br>
+                <label for="amplitudeInput">Amplitude: </label>
+                    <input type="text" id="amplitudeInput" value="5" oninput="this.value = this.value.replace(/[^0-9.-]/g, '').replace(/(\..*)\./g, '$1');"><br>
+                <label for="bitrateInput">Bitrate: </label>
+                    <input type="text" id="bitrateInput" value ="2000" oninput="this.value = this.value.replace(/[^0-9.-]/g, '').replace(/(\..*)\./g, '$1');"><br>
+                <label for="fmax">fmax: </label>
+                    <input type="text" id="fmax" value ="10000" oninput="this.value = this.value.replace(/[^0-9.-]/g, '').replace(/(\..*)\./g, '$1');"><br>
+                <label for="fc">fc: </label>
+                    <input type="text" id="fc" value ="2000" oninput="this.value = this.value.replace(/[^0-9.-]/g, '').replace(/(\..*)\./g, '$1');"><br>
+    
+           </div>  <!-- END of colorDivParam -->
+
+
+           <!--LOADING SCREEN-->
+            <button id="execute" class = "execute_2" onclick="inputFunction()">SIMULATE</button><br><br>
+
+                <div class="dropDown2">
+                <label id="typOfEnc" for="typeOfEncoding">Type of Encoding: </label>
+                    <select id="typeOfEncoding" onchange="onchangeLineCoding()">
+                        <option value="UPNRZ">UPNRZ</option>
+                        <option value="PNRZ">PNRZ</option>
+                        <option value="UPRZ">UPRZ</option>
+                        <option value="PRZ">PRZ</option>
+                        <option value="BPNRZAMI">BPNRZ-AMI</option>
+                        <option value="BPRZAMI">BPRZ-AMI</option>
+                        <option value="biphaseMark">Biphase-Mark</option>
+                        <option value="biphaseSpace">Biphase-Space</option>
+                        <option value="manchester">Manchester</option>
+                        <option value="differentialManchester">Differential Manchester</option>
+                    </select><br><br>
+                </div> <!-- END dropDown2 --> 
+
+        </div>  <!-- END userDefined -->                     
+
+        <!-- FOR CUSTOM ELEMENTS -->
+        <div class="colorChange">
+            <h3 id="elementColors">CUSTOM ELEMENTS</h3>
+    
+            <!-- FOR TWO WINDOW OPTIONS -->
+            <p id="timeDom">Time Domain</p>
+            <div id="window">
+                <select name="VIEWS" id="view" class="windowView">
+                    <option value="Single Window">Single Window</option>
+                    <option value="Two Windows">Two Windows</option>
+                </select><br>
+
+                <div class="twoWindowOptions">
+                    <label for="First window option">Window 1:</label>
+                        <select name="First window option" id="firstWindowOpt" class="windowView">
+                            <option value="Transmitted Signal">Transmitted Signal</option>
+                            <option value="Received Signal">Received Signal</option>
+                        </select><br>
+
+                    <label for="Second window option">Window 2:</label>
+                        <select name="Second window option" id="secondWindowOpt" class="windowView">
+                            <option value="Transmitted Signal">Transmitted Signal</option>
+                            <option value="Received Signal">Received Signal</option>
+                        </select>
+                                                        
+                </div>   <!-- END FOR TWO WINDOW OPTIONS -->
+            </div>   <!-- END FOR  WINDOW OPTIONS -->   
+
+
+            <div id="insideColor">
+                <label id="elemCol">Transmitted: <br> Signal: </label>
+                    <input type="color" id="TXsig" value="#FF1414" onchange="colorChanger()">
+                <label id="elemCol">Width: </label>
+                    <input type="number" id="TXsigThicc"  value="5" onchange="colorChanger()"><br><br>
+
+                     
+                <label id="elemCol">Received: <br> Signal: </label>
+                    <input type="color" id="RXsig"  onchange="colorChanger()">
+                <label id="elemCol">Width: </label>
+                    <input type="number" id="RXsigThicc" value="5" onchange="colorChanger()"><br>
+            </div> <!-- END insideColor -->   
+
+                <p id="freqDom">Frequency Domain</p>
+                <!-- FOR TWO WINDOW OPTIONS -->
+                    <div id="window2">
+                        <select name="VIEWS" id="view2" class="windowView_2">
+                            <option value="Single Window">Single Window</option>
+                            <option value="Two Windows">Two Windows</option>
+                        </select><br>
+
+
+                        <div class="twoWindowOptions_2">
+                            <label for="First window option">Window 1:</label>
+                                <select name="First window option" id="firstWindowOpt_2" class="windowView_2">
+                                    <option value="Transmitted Signal">Transmitted Signal</option>
+                                    <option value="Received Signal">Received Signal</option>
+                                </select><br>
+
+                            <label for="Second window option">Window 2:</label>
+                                <select name="Second window option" id="secondWindowOpt_2" class="windowView_2">
+                                    <option value="Transmitted Signal">Transmitted Signal</option>
+                                    <option value="Received Signal">Received Signal</option>
+                                </select><br>
+                                                        
+                        </div>   <!-- END FOR TWO WINDOW_2 OPTIONS -->
+                    </div>   <!-- END FOR  WINDOW2 -->   
+
+
+                <div id="insideColor1">
+                    <label id="elemCol">Transmitted: <br> Signal: </label>
+                        <input type="color" id="TXmag" value="#FF1414" onchange="colorChanger()" >
+                    <label id="elemCol">Width: </label>
+                        <input type="number" id="TXmagThicc" value="3" onchange="colorChanger()"><br><br>
+
+                   
+                    <label id="elemCol"> Received: <br> Signal: </label>
+                        <input type="color" id="RXmag" onchange="colorChanger()"  >
+                    <label id="elemCol">Width: </label>
+                        <input type="number" id="RXmagThicc" value="3" onchange="colorChanger()"><br>
+                </div> <!-- END insideColor1 -->
+
+                <!-- FOR BG COLOR -->
+                <div id="insideColor2">
+                    <label id="elemCol">Background: </label>
+                        <input type="color" id="bgColor" value="#B7CCC7" onchange="colorChanger()"><br>
+                    <label id="elemCol">Grid: </label>
+                        <input type="color" id="gridColor" value="#FFFFFF" onchange="colorChanger()"><br>
+                </div> <!-- END insideColor2 -->
+                
+        </div> <!-- END colorChange -->
+
+
+        <div class="plots">    
+            <div id="myPlot"></div>
+            <div id="myPlotFreqDom"></div>
+        </div> <!-- END of plots -->
+
+    </div> <!-- END of Grid -->
+</div> <!-- END of Tab 2 -->       
+</div> <!-- End TAB Style -->
+
+
+
+    <script src="Libs/Channel Coding Libs/math.js"></script>
+    <script src="Libs/Main Libs/jquery-3.6.0.min.js"></script>
+    <script src="Libs/Main Libs/plotly-latest.min.js"></script>
+    <script src="Line Coding/LineCoding.js"></script>
+    <script src="Line Coding/libs/completeDTFT.js"></script>
+
+    <script>
+        $("#showBitParams").hide();
+        $("#enableDisable").on("change", function(){
+            if($("#enableDisable").val() == "Enable"){
+            console.log($("#enableDisable").val())
+                $("#showBitParams").slideDown();
+            }
+                    
+            else if($("#enableDisable").val() == "Disable"){
+            console.log($("#enableDisable").val())
+                $("#showBitParams").slideUp();
+            }
+            })
+                        
+        //FOR WINDOW OPTION 1
+        $(".twoWindowOptions").hide();
+            $("#view").on("change", function(){
+                if($("#view").val() == "Two Windows"){
+                console.log("two windows")
+                    $(".twoWindowOptions").slideDown();  
+                }
+
+                else if($("#view").val() == "Single Window"){
+                console.log("one window")
+                    $(".twoWindowOptions").slideUp();
+                }
+                })
+                    
+                
+        //FOR WINDOW OPTION 2  
+        $(".twoWindowOptions_2").hide();
+            $("#view2").on("change", function(){
+                if($("#view2").val() == "Two Windows"){
+                console.log("two windows")
+                    $(".twoWindowOptions_2").slideDown();
+                }
+
+                else if($("#view2").val() == "Single Window"){
+                console.log("one window")
+                    $(".twoWindowOptions_2").slideUp();
+                }
+                })
+    </script>
+
+<script>
+    let checkCounter = 0;
+                 function checkBoxVal(){
+                     console.log($("#checkBox").val());
+                     if($("#checkBox").val() === "on" && checkCounter === 0){
+                         checkCounter = 1;
+                        //  FOR JPG
+                         $(".diagram_2").html('<img src="Line Coding/diagram/Line Coding.jpg" />')
+                         
+                         console.log(checkCounter);
+                     }
+                     else{
+                         checkCounter = 0;
+                        //  FOR GIF
+                         $(".diagram_2").html('<img  src="Line Coding/diagram/Line-Coding.gif" />')
+
+                         console.log(checkCounter)
+                     }
+                 }
+     </script>
+
+<script>
+
+    $(document).ready(function(){
+           $('#btn').click(function(){
+               $(":not(#btn)").prop("checked",false,$('#btn').is(':checked'))
+               $('div .button span').toggleClass("rotate");
+
+               if($(".butt").prop("checked",false,$(".butt").is(":checked"))){
+                    $("div ul li span").removeClass("rotate");
+               }
+           });
+
+           $('.butt').click(function(){
+               $(":not(.butt,#btn)").prop("checked",false,$('.butt').is(':checked'))
+               $('div ul li .first span').toggleClass("rotate");
+
+               if($(".butt2").prop("checked",false,$(".butt2").is(":checked"))){
+                   $(".second span").removeClass("rotate");
+               }
+               if($(".butt3").prop("checked",false,$(".butt3").is(":checked"))) {
+                   $(".third span").removeClass("rotate");
+               }
+           });
+
+           $(".butt2").click(function(){
+               $(".butt3").prop("checked",false,$(".butt3").is(":checked"))
+               $('.second span').toggleClass("rotate");
+
+               if($(".butt3").prop("checked",false,$(".butt3").is(":checked"))){
+                   $('.third span').removeClass("rotate");
+               }
+           })
+
+           $(".butt3").click(function(){
+               $(".butt2").prop("checked",false,$(".butt2").is(":checked"))
+               $('.third span').toggleClass("rotate");
+
+               if($(".butt2").prop("checked",false,$(".butt2").is(":checked"))){
+                   $('.second span').removeClass("rotate");
+               }
+           })
+    });
+   </script>
+
+</body>
+</html>
