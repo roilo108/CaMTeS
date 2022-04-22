@@ -22,6 +22,7 @@ function adaptiveDeltaWindow2Simulation(){
   
     window.onerror = function(message, url, line) {
       alert("INVALID EQUATION!");
+      $(".loader").fadeOut();
     };
   
   
@@ -33,14 +34,14 @@ function adaptiveDeltaWindow2Simulation(){
   Vlsb = Number(Vlsb);
   let Vlsbp = $("#Vlsbp").val()
   Vlsbp = Number(Vlsbp);
-  let fsp = $("#Fsp").val()
+   fsp = $("#Fsp").val()
   let vMaximum = 127*Vlsb;
       multiplierVal = $("#Multiplier").val()
       multiplierVal = Number(multiplierVal);
       multiplierValDAC = $("#MultiplierDAC").val()
       multiplierValDAC = Number(multiplierValDAC);
   //----------------------------INPUT SIGNAL------------------------------
-  //Sampling Values / TRACE 0
+  //SAMPLING VALUES / TRACE 0
   let samplingPeriod = 1/samplingFrequency; //formula
   
   //smoothness
@@ -169,86 +170,7 @@ function adaptiveDeltaWindow2Simulation(){
   }
   
   //define layout
-  let layout2 = {
-    xaxis: {range: [0,tdur],title: "X-AXIS"},
-    yaxis: {title: "Y-AXIS"},
-    plot_bgcolor:$("#bgColor").val(),
-    paper_bgcolor:"#8EB0C6",
-    "yaxis": {
-        "gridcolor": $("#gridColor").val(),
-        "zerolinecolor": $("#gridColor").val(),
-        linecolor: 'black',
-    linewidth: 2,
-    mirror: true
-      },
-      "xaxis": {
-        "zerolinecolor": $("#gridColor").val(),
-        "gridcolor": $("#gridColor").val(),   
-        linecolor: 'black',
-    linewidth: 2,
-    mirror: true
-      },
-      
-      legend: {"orientation": "h"},
   
-      margin: {
-        l: 50,
-        r: 50,
-        b: 50,
-        t: 50,
-        pad: 4
-      },
-  
-  }
-  let layout2_2 = {
-    xaxis: {range: [0,tdur],title: "X-AXIS"},
-    yaxis: {title: "Y-AXIS"},
-    grid: {rows: 2, 
-        columns: 1,
-         pattern: 'independent'
-        },
-        plot_bgcolor:$("#bgColor").val(),
-        paper_bgcolor:"#8EB0C6",
-  
-        "yaxis": {
-            "gridcolor": $("#gridColor").val(),
-            "zerolinecolor": $("#gridColor").val(),
-            linecolor: 'black',
-    linewidth: 2,
-    mirror: true
-        },
-        "xaxis": {
-            "zerolinecolor": $("#gridColor").val(),
-            "gridcolor": $("#gridColor").val(),  
-            linecolor: 'black',
-    linewidth: 2,
-    mirror: true
-  },
-        "yaxis2": {
-            "gridcolor": $("#gridColor").val(),
-            "zerolinecolor": $("#gridColor").val(),
-            linecolor: 'black',
-    linewidth: 2,
-    mirror: true
-        },
-        "xaxis2": {
-            "zerolinecolor": $("#gridColor").val(),
-            "gridcolor": $("#gridColor").val(),
-            linecolor: 'black',
-    linewidth: 2,
-    mirror: true
-  },
-  legend: {"orientation": "h"},
-  
-  margin: {
-    l: 50,
-    r: 50,
-    b: 50,
-    t: 50,
-    pad: 4
-  },
-  
-    }
   
   //----------------------------------------FOR STAIRCASE-------------------------------
   
@@ -313,7 +235,6 @@ function adaptiveDeltaWindow2Simulation(){
   }
   }
   
-  
   //------------------------------------- DPCM RECEIVER -----------------------------
   //RECEIVER
   
@@ -323,7 +244,8 @@ function adaptiveDeltaWindow2Simulation(){
   let xValuesStairDac = [];
   let v = 0;
   let x = 0;
-  for( t = samplingStartFormulaDAC; t<=tdur; t+=samplingPeriodDAC){  
+  
+  for( t = samplingStartFormulaDAC; t<=(nValForTable.length+samplingStart)*samplingPeriodDAC && v< nValForTable.length; t+=samplingPeriodDAC){  
       let add = i+1;
       xValueRoundDac = Math.round(10000000*t)/10000000
       yValueRoundDac = Math.round(10000000*(eval(exp)))/10000000;
@@ -335,7 +257,6 @@ function adaptiveDeltaWindow2Simulation(){
   } 
   let xValueRoundStairDac = Math.round(10000000*t)/10000000
       xValuesStairDac.push(xValueRoundStairDac);
-  
   // ------------------------------------ FOR DAC STAIRCASE ----------------------------
   
   let roundUpdateValDAC = 0;
@@ -346,11 +267,12 @@ function adaptiveDeltaWindow2Simulation(){
   
   let updateBitStreamDAC = '';
   let stepSizeDAC = [];
-  
-  
+  nValForTable_2 = [];
+  let bitStream_2 = []
   let p = 0;
-  for(let i = 0; i<yValues.length ; i++){
-  
+  for(let i = 0; i<yValuesDac.length ; i++){
+    bitStream_2[i] = bitStream[i]
+    nValForTable_2[i] = i+1;
   if(bitStream[i]== "1"){
     updateBitStreamDAC = updateBitStreamDAC + "1";
     //to get the last 2 values of the array
@@ -391,9 +313,89 @@ function adaptiveDeltaWindow2Simulation(){
   }
   p++;
   }
-  
+
   //----------------------------- FOR TABLE 2 ---------------------------------------
+  let endPlot = 0;
+  if(xValuesStairDac[xValuesStairDac.length-1] >= tdur) endPlot = xValuesStairDac[xValuesStairDac.length-1];
+  else endPlot = tdur;
+   
+  console.log(endPlot)
+  let layout2 = {
+          xaxis: {range: [0, endPlot], 
+              "zerolinecolor": $("#gridColor").val(),
+              "gridcolor": $("#gridColor").val(),   
+              linecolor: 'black',
+          linewidth: 2,
+          mirror: true
+          
+          },
+              yaxis: {
+                  "gridcolor": $("#gridColor").val(),
+                  "zerolinecolor": $("#gridColor").val(),
+                  linecolor: 'black',
+              linewidth: 2,
+              mirror: true},
+              plot_bgcolor:$("#bgColor").val(),
+              paper_bgcolor:"#8EB0C6",
+          
+                legend: {"orientation": "h"},
+              
+                margin: {
+                  l: 50,
+                  r: 50,
+                  b: 50,
+                  t: 50,
+                  pad: 4
+                },
+      
+      }
   
+      let layout2_2 = {
+          xaxis: {range: [0,endPlot],title: "X-AXIS",
+          "zerolinecolor": $("#gridColor").val(),
+          "gridcolor": $("#gridColor").val(),  
+          linecolor: 'black',
+  linewidth: 2,
+  mirror: true},
+          yaxis: {title: "Y-AXIS",
+          "gridcolor": $("#gridColor").val(),
+          "zerolinecolor": $("#gridColor").val(),
+          linecolor: 'black',
+  linewidth: 2,
+  mirror: true},
+          grid: {rows: 2, 
+              columns: 1,
+               pattern: 'independent'
+              },
+              plot_bgcolor:$("#bgColor").val(),
+              paper_bgcolor:"#8EB0C6",
+  
+              "yaxis2": {
+                  "gridcolor": $("#gridColor").val(),
+                  "zerolinecolor": $("#gridColor").val(),
+                  linecolor: 'black',
+          linewidth: 2,
+          mirror: true
+              },
+              "xaxis2": {
+                  range: [0,endPlot],
+                  "zerolinecolor": $("#gridColor").val(),
+                  "gridcolor": $("#gridColor").val(),
+                  linecolor: 'black',
+          linewidth: 2,
+          mirror: true
+      },
+      legend: {"orientation": "h"},
+      
+      margin: {
+          l: 50,
+          r: 50,
+          b: 50,
+          t: 50,
+          pad: 4
+        },
+      
+          }
   var DACtrace3 = {
     x: xValuesStairDac,
     y: encodedValDAC,
@@ -446,7 +448,7 @@ function adaptiveDeltaWindow2Simulation(){
   
     let windowChangeVal1 = $("#firstWindowOpt").val();
     let windowChangeVal2 = $("#secondWindowOpt").val();
-
+  
     let dataFullCombi = [data,data2,DACtrace3,DACtrace4]
     Plotly.newPlot('myPlot',dataFullCombi, layout2, config);
   

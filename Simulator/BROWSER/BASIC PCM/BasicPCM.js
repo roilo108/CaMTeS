@@ -85,39 +85,48 @@ let data2_2 = {
 //define layout
 //added
 let layout2 = {
-    xaxis: {range: [0,tdur],title: "X-AXIS"},
-    yaxis: {title: "Y-AXIS"},
-    plot_bgcolor:$("#bgColor").val(),
-    paper_bgcolor:"#8EB0C6",
-    "yaxis": {
-        "gridcolor": $("#gridColor").val(),
-        "zerolinecolor": $("#gridColor").val(),
-        linecolor: 'black',
-    linewidth: 2,
-    mirror: true
-      },
-      "xaxis": {
+    xaxis: {range: [0, tdur], 
         "zerolinecolor": $("#gridColor").val(),
         "gridcolor": $("#gridColor").val(),   
         linecolor: 'black',
     linewidth: 2,
     mirror: true
-      },
-      
-      legend: {"orientation": "h"},
-
-      margin: {
-        l: 50,
-        r: 50,
-        b: 50,
-        t: 50,
-        pad: 4
-      },
+    
+    },
+        yaxis: {
+            "gridcolor": $("#gridColor").val(),
+            "zerolinecolor": $("#gridColor").val(),
+            linecolor: 'black',
+        linewidth: 2,
+        mirror: true},
+        plot_bgcolor:$("#bgColor").val(),
+        paper_bgcolor:"#8EB0C6",
+    
+          legend: {"orientation": "h"},
+        
+          margin: {
+            l: 50,
+            r: 50,
+            b: 50,
+            t: 50,
+            pad: 4
+          },
 
 }
+
 let layout2_2 = {
-    xaxis: {range: [0,tdur],title: "X-AXIS"},
-    yaxis: {title: "Y-AXIS"},
+    xaxis: {range: [0,tdur],title: "X-AXIS",
+    "zerolinecolor": $("#gridColor").val(),
+    "gridcolor": $("#gridColor").val(),  
+    linecolor: 'black',
+linewidth: 2,
+mirror: true},
+    yaxis: {title: "Y-AXIS",
+    "gridcolor": $("#gridColor").val(),
+    "zerolinecolor": $("#gridColor").val(),
+    linecolor: 'black',
+linewidth: 2,
+mirror: true},
     grid: {rows: 2, 
         columns: 1,
          pattern: 'independent'
@@ -125,20 +134,6 @@ let layout2_2 = {
         plot_bgcolor:$("#bgColor").val(),
         paper_bgcolor:"#8EB0C6",
 
-        "yaxis": {
-            "gridcolor": $("#gridColor").val(),
-            "zerolinecolor": $("#gridColor").val(),
-            linecolor: 'black',
-    linewidth: 2,
-    mirror: true
-        },
-        "xaxis": {
-            "zerolinecolor": $("#gridColor").val(),
-            "gridcolor": $("#gridColor").val(),  
-            linecolor: 'black',
-    linewidth: 2,
-    mirror: true
-},
         "yaxis2": {
             "gridcolor": $("#gridColor").val(),
             "zerolinecolor": $("#gridColor").val(),
@@ -147,6 +142,7 @@ let layout2_2 = {
     mirror: true
         },
         "xaxis2": {
+            range: [0,tdur],
             "zerolinecolor": $("#gridColor").val(),
             "gridcolor": $("#gridColor").val(),
             linecolor: 'black',
@@ -336,86 +332,7 @@ function executePCMSimulation(){
     let tdur = numCycle/frequency; //formula
         
         
-    let layout2 = {
-        xaxis: {range: [0,tdur],title: "X-AXIS"},
-        yaxis: {title: "Y-AXIS"},
-        plot_bgcolor:$("#bgColor").val(),
-        paper_bgcolor:"#8EB0C6",
-        "yaxis": {
-            "gridcolor": $("#gridColor").val(),
-            "zerolinecolor": $("#gridColor").val(),
-            linecolor: 'black',
-        linewidth: 2,
-        mirror: true
-          },
-          "xaxis": {
-            "zerolinecolor": $("#gridColor").val(),
-            "gridcolor": $("#gridColor").val(),   
-            linecolor: 'black',
-        linewidth: 2,
-        mirror: true
-          },
-          
-          legend: {"orientation": "h"},
-    
-          margin: {
-            l: 50,
-            r: 50,
-            b: 50,
-            t: 50,
-            pad: 4
-          },
-    
-    }
-    let layout2_2 = {
-        xaxis: {range: [0,tdur],title: "X-AXIS"},
-        yaxis: {title: "Y-AXIS"},
-        grid: {rows: 2, 
-            columns: 1,
-             pattern: 'independent'
-            },
-            plot_bgcolor:$("#bgColor").val(),
-            paper_bgcolor:"#8EB0C6",
 
-            "yaxis": {
-                "gridcolor": $("#gridColor").val(),
-                "zerolinecolor": $("#gridColor").val(),
-                linecolor: 'black',
-        linewidth: 2,
-        mirror: true
-            },
-            "xaxis": {
-                "zerolinecolor": $("#gridColor").val(),
-                "gridcolor": $("#gridColor").val(),  
-                linecolor: 'black',
-        linewidth: 2,
-        mirror: true
-    },
-            "yaxis2": {
-                "gridcolor": $("#gridColor").val(),
-                "zerolinecolor": $("#gridColor").val(),
-                linecolor: 'black',
-        linewidth: 2,
-        mirror: true
-            },
-            "xaxis2": {
-                "zerolinecolor": $("#gridColor").val(),
-                "gridcolor": $("#gridColor").val(),
-                linecolor: 'black',
-        linewidth: 2,
-        mirror: true
-    },
-    legend: {"orientation": "h"},
-    
-    margin: {
-        l: 50,
-        r: 50,
-        b: 50,
-        t: 50,
-        pad: 4
-      },
-    
-        }
 
     //generate the values
     let xValues = [];
@@ -691,6 +608,84 @@ let headerAdc = [];
 //#region DAC    
 //--------------------------------------DAC------------------------------------
 //PLOT DAC
+let endPlot = 0;
+if(xdacDataPlot[xdacDataPlot.length-1] >= tdur) endPlot = xdacDataPlot[xdacDataPlot.length-1];
+else endPlot = tdur;
+let layout2 = {
+    xaxis: {range: [0, endPlot], 
+        "zerolinecolor": $("#gridColor").val(),
+        "gridcolor": $("#gridColor").val(),   
+        linecolor: 'black',
+    linewidth: 2,
+    mirror: true
+    
+    },
+        yaxis: {
+            "gridcolor": $("#gridColor").val(),
+            "zerolinecolor": $("#gridColor").val(),
+            linecolor: 'black',
+        linewidth: 2,
+        mirror: true},
+        plot_bgcolor:$("#bgColor").val(),
+        paper_bgcolor:"#8EB0C6",
+    
+          legend: {"orientation": "h"},
+        
+          margin: {
+            l: 50,
+            r: 50,
+            b: 50,
+            t: 50,
+            pad: 4
+          },
+
+}
+let layout2_2 = {
+    xaxis: {range: [0,endPlot],title: "X-AXIS",
+    "zerolinecolor": $("#gridColor").val(),
+    "gridcolor": $("#gridColor").val(),  
+    linecolor: 'black',
+linewidth: 2,
+mirror: true},
+    yaxis: {title: "Y-AXIS",
+    "gridcolor": $("#gridColor").val(),
+    "zerolinecolor": $("#gridColor").val(),
+    linecolor: 'black',
+linewidth: 2,
+mirror: true},
+    grid: {rows: 2, 
+        columns: 1,
+         pattern: 'independent'
+        },
+        plot_bgcolor:$("#bgColor").val(),
+        paper_bgcolor:"#8EB0C6",
+
+        "yaxis2": {
+            "gridcolor": $("#gridColor").val(),
+            "zerolinecolor": $("#gridColor").val(),
+            linecolor: 'black',
+    linewidth: 2,
+    mirror: true
+        },
+        "xaxis2": {
+            range: [0,endPlot],
+            "zerolinecolor": $("#gridColor").val(),
+            "gridcolor": $("#gridColor").val(),
+            linecolor: 'black',
+    linewidth: 2,
+    mirror: true
+},
+legend: {"orientation": "h"},
+
+margin: {
+    l: 50,
+    r: 50,
+    b: 50,
+    t: 50,
+    pad: 4
+  },
+
+    }
 let dacDataPlot = {
     x: xdacDataPlot,
     y: ydacDataPlot,
@@ -793,8 +788,9 @@ var dataTable2 = [{
     }
 let fullCombi = [data,data2,dacData,dacDataPlot]
 //,dacData,dacDataPlot
+
 Plotly.newPlot('myPlot4', dataTable2,layoutTable2,{displayModeBar: false, responsive: true,});
-Plotly.newPlot('myPlot' , fullCombi, layout2,config);
+Plotly.newPlot('myPlot' , fullCombi,layout2,config );
 //------------------------------------ FOR TWO WINDOWS --------------------------------------
 if($("#view").val() == "Two Windows"){
 

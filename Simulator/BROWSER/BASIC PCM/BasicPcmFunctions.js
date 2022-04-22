@@ -111,87 +111,6 @@ function executePCM2(){
    let period = 1/frequency; //formula
    let samplingStartFormula = samplingStart*samplingPeriod; //formula
    let tdur = numCycle/frequency; //formula
-       
-       
-   let layout2 = {
-    xaxis: {range: [0,tdur],title: "X-AXIS"},
-    yaxis: {title: "Y-AXIS"},
-    plot_bgcolor:$("#bgColor").val(),
-    paper_bgcolor:"#8EB0C6",
-    "yaxis": {
-        "gridcolor": $("#gridColor").val(),
-        "zerolinecolor": $("#gridColor").val(),
-        linecolor: 'black',
-    linewidth: 2,
-    mirror: true
-      },
-      "xaxis": {
-        "zerolinecolor": $("#gridColor").val(),
-        "gridcolor": $("#gridColor").val(),   
-        linecolor: 'black',
-    linewidth: 2,
-    mirror: true
-      },
-      
-      legend: {"orientation": "h"},
-
-      margin: {
-        l: 50,
-        r: 50,
-        b: 50,
-        t: 50,
-        pad: 4
-      },
-
-}
-let layout2_2 = {
-    xaxis: {range: [0,tdur],title: "X-AXIS"},
-    yaxis: {title: "Y-AXIS"},
-    grid: {rows: 2, 
-        columns: 1,
-         pattern: 'independent'
-        },
-        plot_bgcolor:$("#bgColor").val(),
-        paper_bgcolor:"#8EB0C6",
-        "yaxis": {
-            "gridcolor": $("#gridColor").val(),
-            "zerolinecolor": $("#gridColor").val(),
-            linecolor: 'black',
-    linewidth: 2,
-    mirror: true
-        },
-        "xaxis": {
-            "zerolinecolor": $("#gridColor").val(),
-            "gridcolor": $("#gridColor").val(),  
-            linecolor: 'black',
-    linewidth: 2,
-    mirror: true
-},
-        "yaxis2": {
-            "gridcolor": $("#gridColor").val(),
-            "zerolinecolor": $("#gridColor").val(),
-            linecolor: 'black',
-    linewidth: 2,
-    mirror: true
-        },
-        "xaxis2": {
-            "zerolinecolor": $("#gridColor").val(),
-            "gridcolor": $("#gridColor").val(),
-            linecolor: 'black',
-    linewidth: 2,
-    mirror: true
-},
-legend: {"orientation": "h"},
-
-margin: {
-    l: 50,
-    r: 50,
-    b: 50,
-    t: 50,
-    pad: 4
-  },
-
-    }
 
      //generate the values
      let xValues = [];
@@ -310,7 +229,7 @@ margin: {
          name: "Input Signal ",
      }
      
-     let dataCombined = [];
+
     //---------------------------------------------- END SAMPLING-------------------------
 //#endregion
 
@@ -318,21 +237,13 @@ margin: {
     //------------------------------------ QUANTIZATION and ENCODING-------------------------
 
     //EXECUTE FUNCTIONS
-let bitStream = '';
-let rotateVal = '';
-
-let compressionArr = [];
-
 let encodedArr = [];
-let expansionArr = [];
-let dacQuantized = [];
 let samplingQuantized = [];
 let returnVal = 0;
 let returnVal2 = 0;
-let compressedBitStream = '';
+
 //DIGITAL COMPANDING ARRAYS
-let digitalCompressedArr = [];
-let digitalExpandedArr = [];
+
 for(let i=0; i<yValues.length;i++){
     //FOR QUANTIZATION
     //WITHOUT COMPANDING
@@ -409,7 +320,87 @@ let dacDataPlot_2 = {
     },
     offset: 0,
 } 
+let endPlot = 0;
+if(xdacDataPlot[xdacDataPlot.length-1] >= tdur) endPlot = xdacDataPlot[xdacDataPlot.length-1];
+else endPlot = tdur;
+ 
 
+let layout2 = {
+        xaxis: {range: [0, endPlot], 
+            "zerolinecolor": $("#gridColor").val(),
+            "gridcolor": $("#gridColor").val(),   
+            linecolor: 'black',
+        linewidth: 2,
+        mirror: true
+        
+        },
+            yaxis: {
+                "gridcolor": $("#gridColor").val(),
+                "zerolinecolor": $("#gridColor").val(),
+                linecolor: 'black',
+            linewidth: 2,
+            mirror: true},
+            plot_bgcolor:$("#bgColor").val(),
+            paper_bgcolor:"#8EB0C6",
+        
+              legend: {"orientation": "h"},
+            
+              margin: {
+                l: 50,
+                r: 50,
+                b: 50,
+                t: 50,
+                pad: 4
+              },
+    
+    }
+
+    let layout2_2 = {
+        xaxis: {range: [0,endPlot],title: "X-AXIS",
+        "zerolinecolor": $("#gridColor").val(),
+        "gridcolor": $("#gridColor").val(),  
+        linecolor: 'black',
+linewidth: 2,
+mirror: true},
+        yaxis: {title: "Y-AXIS",
+        "gridcolor": $("#gridColor").val(),
+        "zerolinecolor": $("#gridColor").val(),
+        linecolor: 'black',
+linewidth: 2,
+mirror: true},
+        grid: {rows: 2, 
+            columns: 1,
+             pattern: 'independent'
+            },
+            plot_bgcolor:$("#bgColor").val(),
+            paper_bgcolor:"#8EB0C6",
+
+            "yaxis2": {
+                "gridcolor": $("#gridColor").val(),
+                "zerolinecolor": $("#gridColor").val(),
+                linecolor: 'black',
+        linewidth: 2,
+        mirror: true
+            },
+            "xaxis2": {
+                range: [0,endPlot],
+                "zerolinecolor": $("#gridColor").val(),
+                "gridcolor": $("#gridColor").val(),
+                linecolor: 'black',
+        linewidth: 2,
+        mirror: true
+    },
+    legend: {"orientation": "h"},
+    
+    margin: {
+        l: 50,
+        r: 50,
+        b: 50,
+        t: 50,
+        pad: 4
+      },
+    
+        }
 let fullCombi = [data,data2,dacData,dacDataPlot]
 Plotly.newPlot('myPlot' , fullCombi, layout2,config);
 //--------------------------------------------------------------------------
