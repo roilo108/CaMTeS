@@ -165,26 +165,36 @@ function executePCM2Simulation(){
         let xValues2 = [];
         let yValues2 = [];
         let compressionPlot = [];
+        let compressionPlot_sampled = [];
         
         for(let t = 0; t<=tdur ; t+=samplingPeriod/F){
             xValues2.push(t);
             yValues2.push(eval(exp));
         }
-        //plot values for the compressed wave
-        for(let i=0; i<yValues2.length;i++){
-            let muVal = $("#muVal").val()
-            let debug = muLawCompression(yValues2[i],muVal, vMaximum)
-            compressionPlot.push(debug);
-        }
-
-        let compressionPlot_sampled = [];
-
-      //plot values for the sampled compressed wave
-      for(let i=0; i<yValues.length;i++){
-        let muVal = $("#muVal").val()
-        let debug = muLawCompression(yValues[i],muVal, vMaximum)
-        compressionPlot_sampled.push(debug);
+       // FOR ZERO muVal
+let muVal = $("#muVal").val();
+if(muVal == "0"){
+    for(let i = 0; i<yValues2.length ; i++){
+    compressionPlot.push(yValues2[i]);
     }
+    for(let i = 0; i<yValues.length ; i++){
+    compressionPlot_sampled.push(yValues[i]);
+    }
+}
+                    else{
+                    //plot values for the compressed wave
+                    for(let i=0; i<yValues2.length;i++){
+                        let muVal = $("#muVal").val()
+                        let debug = muLawCompression(yValues2[i],muVal, vMaximum)
+                        compressionPlot.push(debug);
+                    }
+                    //plot values for the sampled compressed wave
+                    for(let i=0; i<yValues.length;i++){
+                        let muVal = $("#muVal").val()
+                        let debug = muLawCompression(yValues[i],muVal, vMaximum)
+                        compressionPlot_sampled.push(debug);
+                    }
+                }
                 //define the DATA
                 let data = {
                     x: xValues,
@@ -388,6 +398,19 @@ function executePCM2Simulation(){
         //WITH ANALOG COMPANDING
         //COMPRESSION
         let add = i+1;
+        if($("#muVal").val() === "0"){
+            returnVal = quantization(Vlsb,yValues[i]);
+            compressionArr.push(returnVal);
+            samplingQuantized.push(returnVal);
+            returnVal2 = encoding(returnVal,Vlsb);
+            encodedArr.push((returnVal2));
+            let dacVal = (digitalToAnalog(Vlsbp, returnVal2));
+        dacQuantized.push(dacVal);
+        expansionArr.push(dacVal);
+        ydacData.push(dacVal);
+        ydacDataPlot.push(dacVal);
+        }
+        else{
         let muVal = $("#muVal").val()
         let compressionVal = muLawCompression(yValues[i],muVal, vMaximum);
         compressionArr.push(compressionVal);
@@ -395,15 +418,14 @@ function executePCM2Simulation(){
         samplingQuantized.push(returnVal);
         returnVal2 = encoding(returnVal,Vlsb);
         encodedArr.push((returnVal2));
-    
         //FOR DAC PLOTTING
-       
         let dacVal = (digitalToAnalog(Vlsbp, returnVal2));
         dacQuantized.push(dacVal);
         let expandedVal = muLawExpansion(dacVal,$("#muVal").val(),vMaximum)
         expansionArr.push(expandedVal);
         ydacData.push(expandedVal);
         ydacDataPlot.push(expandedVal);
+        }
     }
         //------------------------------------ END QUANTIZATION and ENCODING-------------------------
     //#endregion QUANTIZATION and ENCODING

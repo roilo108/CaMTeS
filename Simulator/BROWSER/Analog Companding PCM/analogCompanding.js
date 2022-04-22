@@ -377,26 +377,40 @@ for(let x = samplingStartFormulaDAC; j <nValForTable.length; x+=samplingPeriodDA
     let xValues2 = [];
     let yValues2 = [];
     let compressionPlot = [];
+    let compressionPlot_sampled = [];
     
     for(let t = 0; t<=tdur ; t+=samplingPeriod/F){
         xValues2.push(t);
         yValues2.push(eval(exp));
     }
-    //plot values for the compressed wave
-    for(let i=0; i<yValues2.length;i++){
-        let muVal = $("#muVal").val()
-        let debug = muLawCompression(yValues2[i],muVal, vMaximum)
-        compressionPlot.push(debug);
-    }
 
-    let compressionPlot_sampled = [];
-
-      //plot values for the sampled compressed wave
-      for(let i=0; i<yValues.length;i++){
-        let muVal = $("#muVal").val()
-        let debug = muLawCompression(yValues[i],muVal, vMaximum)
-        compressionPlot_sampled.push(debug);
+// FOR ZERO muVal
+let muVal = $("#muVal").val();
+    if(muVal == "0"){
+        for(let i = 0; i<yValues2.length ; i++){
+        compressionPlot.push(yValues2[i]);
+        }
+        for(let i = 0; i<yValues.length ; i++){
+        compressionPlot_sampled.push(yValues[i]);
+        }
     }
+                        else{
+                        //plot values for the compressed wave
+                        for(let i=0; i<yValues2.length;i++){
+                            let muVal = $("#muVal").val()
+                            let debug = muLawCompression(yValues2[i],muVal, vMaximum)
+                            compressionPlot.push(debug);
+                        }
+                        //plot values for the sampled compressed wave
+                        for(let i=0; i<yValues.length;i++){
+                            let muVal = $("#muVal").val()
+                            let debug = muLawCompression(yValues[i],muVal, vMaximum)
+                            compressionPlot_sampled.push(debug);
+                        }
+                    }
+
+
+                  
         //define the DATA
         let data = {
             x: xValues,
@@ -598,10 +612,24 @@ let compressedBitStream = '';
 //DIGITAL COMPANDING ARRAYS
 let digitalCompressedArr = [];
 let digitalExpandedArr = [];
+
 for(let i=0; i<yValues.length;i++){
     //WITH ANALOG COMPANDING
     //COMPRESSION
     let add = i+1;
+    if($("#muVal").val() === "0"){
+        returnVal = quantization(Vlsb,yValues[i]);
+        compressionArr.push(returnVal);
+        samplingQuantized.push(returnVal);
+        returnVal2 = encoding(returnVal,Vlsb);
+        encodedArr.push((returnVal2));
+        let dacVal = (digitalToAnalog(Vlsbp, returnVal2));
+    dacQuantized.push(dacVal);
+    expansionArr.push(dacVal);
+    ydacData.push(dacVal);
+    ydacDataPlot.push(dacVal);
+    }
+    else{
     let muVal = $("#muVal").val()
     let compressionVal = muLawCompression(yValues[i],muVal, vMaximum);
     compressionArr.push(compressionVal);
@@ -609,15 +637,14 @@ for(let i=0; i<yValues.length;i++){
     samplingQuantized.push(returnVal);
     returnVal2 = encoding(returnVal,Vlsb);
     encodedArr.push((returnVal2));
-
     //FOR DAC PLOTTING
-   
     let dacVal = (digitalToAnalog(Vlsbp, returnVal2));
     dacQuantized.push(dacVal);
     let expandedVal = muLawExpansion(dacVal,$("#muVal").val(),vMaximum)
     expansionArr.push(expandedVal);
     ydacData.push(expandedVal);
     ydacDataPlot.push(expandedVal);
+    }
 }
     //SOUND ARRAY 1
 if(samplingFrequency>=3000 && fsp >=3000){
@@ -661,6 +688,7 @@ var alerted = false;
             let volume = $("#volume").val();
         for(let t = 0; t<soundArr.length; t++){  
     //COMPRESSION
+    if($("#muVal").val()>0){
     let muVal = $("#muVal").val()
     let compressionValSound = muLawCompression(soundArr[t],muVal, vMaximum);
     returnValSound = quantization(Vlsb,compressionValSound);
@@ -669,6 +697,13 @@ var alerted = false;
     //FOR DAC PLOTTING
     let dacValSound = (digitalToAnalog(Vlsbp, returnVal2Sound));
     soundArrDAC[t] = muLawExpansion(dacValSound,$("#muVal").val(),vMaximum)
+    }
+    else{
+        returnValSound = quantization(Vlsb,soundArr[t]);
+        returnVal2Sound = encoding(returnValSound,Vlsb);
+        let dacValSound = (digitalToAnalog(Vlsbp, returnVal2Sound));
+        soundArrDAC[t] = dacValSound;
+    }
        
 }
     }
@@ -686,7 +721,6 @@ var alerted = false;
             } 
            }
    }
-
 //FOR ADC TABLE
 let headerAdc = [];
     var values = [];
