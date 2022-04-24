@@ -367,6 +367,31 @@ bps = $("#bitrateInput").val();
  fmax = $("#fmax").val();
  fc = $("#fc").val();
 
+// FOR ALERTS
+ if(binaryInput.length >= 150 ){
+ if (confirm('There are too many inputted bits. This parameter would take a long time to simulate. Do you wish to continue?')) {
+    // CONTINUE
+  } else {
+   return;
+  }
+ }
+
+ if(bps<=75){
+ if (confirm('The bitrate is too low. This parameter would take a long time to simulate. Do you wish to continue?')) {
+    // CONTINUE
+  } else {
+   return;
+  }
+ }
+
+ if(fmax>=50000){
+ if (confirm('The fmax is too high. This parameter would take a long time to simulate. Do you wish to continue?')) {
+    // CONTINUE
+  } else {
+   return;
+  }
+ }
+
 
 let typeOfEncoding = $("#typeOfEncoding").val();
 
@@ -454,6 +479,32 @@ amplitude = Number(amplitude);
 fmax = $("#fmax").val();
 fc = $("#fc").val();
 bps = $("#bitrateInput").val();
+
+// FOR ALERTS
+if(binaryInput.length >= 150 ){
+    if (confirm('There are too many inputted bits. This parameter would take a long time to simulate. Do you wish to continue?')) {
+       // CONTINUE
+     } else {
+      return;
+     }
+    }
+   
+    if(bps<=75){
+    if (confirm('The bitrate is too low. This parameter would take a long time to simulate. Do you wish to continue?')) {
+       // CONTINUE
+     } else {
+      return;
+     }
+    }
+   
+    if(fmax>=50000){
+    if (confirm('The fmax is too high. This parameter would take a long time to simulate. Do you wish to continue?')) {
+       // CONTINUE
+     } else {
+      return;
+     }
+    }
+
 
 var alerted_2 = false;
 if (Boolean(bps) === false){

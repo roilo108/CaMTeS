@@ -41,6 +41,28 @@ if (functionCounter > 0){
  let samplingPeriodDAC = 1/fsp; //formula
  let samplingStartFormulaDAC = samplingStart*samplingPeriodDAC; //formula
  
+ // FOR ALERTS
+if(numCycle >= 100 ){
+    if (confirm('The number of cycles is too high. This parameter would take a long time to simulate. Do you wish to continue?')) {
+       // CONTINUE
+     } else {
+      return;
+     }
+    }
+  if(samplingFrequency >= 40000 ){
+    if (confirm('The sampling frequency is too high. This parameter would take a long time to simulate. Do you wish to continue?')) {
+       // CONTINUE
+     } else {
+      return;
+     }
+    }
+  if(fsp >= 40000 ){
+    if (confirm('The sampling frequency prime is too high. This parameter would take a long time to simulate. Do you wish to continue?')) {
+       // CONTINUE
+     } else {
+      return;
+     }
+    }
  // --------------------- NEW ---------------------------
  let pi = Math.PI;
  let cos = Math.cos;

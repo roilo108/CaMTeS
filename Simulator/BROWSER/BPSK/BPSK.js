@@ -313,6 +313,39 @@ fmin = Number(fmin);
  bandwidth = $("#bandwidth").val(); //cut off frequency
  //#endregion
 // FOR ALERT
+// FOR ALERTS
+if(bits.length >= 150 ){
+  if (confirm('There are too many inputted bits. This parameter would take a long time to simulate. Do you wish to continue?')) {
+     // CONTINUE
+   } else {
+    return;
+   }
+  }
+ 
+  if(bitRate<=75){
+  if (confirm('The bitrate is too low. This parameter would take a long time to simulate. Do you wish to continue?')) {
+     // CONTINUE
+   } else {
+    return;
+   }
+  }
+ 
+  if(fmax>=50000){
+  if (confirm('The fmax is too high. This parameter would take a long time to simulate. Do you wish to continue?')) {
+     // CONTINUE
+   } else {
+    return;
+   }
+  }
+
+  if(fmin<=-50000){
+  if (confirm('The fmin is too low. This parameter would take a long time to simulate. Do you wish to continue?')) {
+     // CONTINUE
+   } else {
+    return;
+   }
+  }
+
 var alerted = false;
 for(let i= 0; i<bits.length; i++){
     if (bits.charAt(i) != "1" && bits.charAt(i) != "0"){
@@ -546,6 +579,39 @@ function simulateOnChangeSimulation(){
     //Bandwidth of the channel:
      bandwidth = $("#bandwidth").val(); //cut off frequency
      //#endregion
+    // FOR ALERTS
+if(bits.length >= 150 ){
+  if (confirm('There are too many inputted bits. This parameter would take a long time to simulate. Do you wish to continue?')) {
+     // CONTINUE
+   } else {
+    return;
+   }
+  }
+ 
+  if(bitRate<=75){
+  if (confirm('The bitrate is too low. This parameter would take a long time to simulate. Do you wish to continue?')) {
+     // CONTINUE
+   } else {
+    return;
+   }
+  }
+ 
+  if(fmax>=50000){
+  if (confirm('The fmax is too high. This parameter would take a long time to simulate. Do you wish to continue?')) {
+     // CONTINUE
+   } else {
+    return;
+   }
+  }
+
+  if(fmin<=-50000){
+  if (confirm('The fmin is too low. This parameter would take a long time to simulate. Do you wish to continue?')) {
+     // CONTINUE
+   } else {
+    return;
+   }
+  }
+  
      var alerted_2 = false;
      if (Boolean(bitRate) === false){
          if (alerted_2 === false){
