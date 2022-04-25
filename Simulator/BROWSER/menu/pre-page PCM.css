@@ -5,15 +5,15 @@ body {
 
 /* Import FONTS */
 @font-face {
-    src: url(Fonts/PressStart2P-Regular.ttf);
+    src: url(../Libs/FONTS/PressStart2P-Regular.ttf);
     font-family: pressStart;
 }
 @font-face{
-    src: url(Fonts/Jua-Regular.ttf);
+    src: url(../Libs/FONTS/Jua-Regular.ttf);
     font-family: jua;
 }
 @font-face{
-    src: url(Fonts/PTSansCaption-Regular.ttf);
+    src: url(../Libs/FONTS/PTSansCaption-Regular.ttf);
     font-family: sans;
 }
 
