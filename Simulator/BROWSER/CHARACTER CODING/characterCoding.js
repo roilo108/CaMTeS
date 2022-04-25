@@ -98,7 +98,7 @@ let ebcdicArray = [
         }
 
     }
-
+   
 
       if (dropVal === "EBCDIC"){
           if(dropValParity === "noparity"){
@@ -108,12 +108,14 @@ let ebcdicArray = [
 
         if(dropValParity === "oddparity"){
             console.log("ebcdic odd parity");
-            ebcdicLeftExecOddParity();
+            // ebcdicLeftExecOddParity();
+            ebcdicLeftExec();
         }
        
          if(dropValParity === "evenparity"){
             console.log("ebcdic even parity");
-            ebcdicLeftExecEvenParity();
+            // ebcdicLeftExecEvenParity();
+            ebcdicLeftExec();
         }
 
     }
@@ -140,6 +142,10 @@ let ebcdicArray = [
         function forLoad(){
 
         let asciiInput = $("#asciiText").val();
+
+        if (Boolean(asciiInput) === false || asciiInput.charAt(0) === " "){
+        document.getElementById("asciiOutput").innerHTML = "";
+        }
         //a<asd
         //&lt2
         let asciiInputFinal = "";
@@ -249,6 +255,9 @@ let ebcdicArray = [
         function forLoad_2(){
         let asciiInput = $("#asciiText").val();
             //LESS THAN FIX
+            if (Boolean(asciiInput) === false || asciiInput.charAt(0) === " "){
+                document.getElementById("asciiOutput").innerHTML = "";
+                }
     let asciiInputFinal = "";
     for(let a = 0; a<asciiInput.length ; a++){
         if(asciiInput.charAt(a) == "<"){
@@ -358,6 +367,9 @@ let ebcdicArray = [
     function forLoad_3(){
         let asciiInput = $("#asciiText").val();
                  //LESS THAN FIX
+                 if (Boolean(asciiInput) === false || asciiInput.charAt(0) === " "){
+                    document.getElementById("asciiOutput").innerHTML = "";
+                    }
     let asciiInputFinal = "";
     for(let a = 0; a<asciiInput.length ; a++){
         if(asciiInput.charAt(a) == "<"){
@@ -475,6 +487,9 @@ let ebcdicArray = [
         function loading_3(){
         let ebcdicInput = $("#asciiText").val();
                     //LESS THAN FIX
+                    if (Boolean(ebcdicInput) === false || ebcdicInput.charAt(0) === " "){
+                        document.getElementById("asciiOutput").innerHTML = "";
+                        }
     let asciiInputFinal = "";
     for(let a = 0; a<ebcdicInput.length ; a++){
         if(ebcdicInput.charAt(a) == "<"){
@@ -601,6 +616,9 @@ let ebcdicArray = [
         function loading(){
             let ebcdicInput = $("#asciiText").val();
             //LESS THAN FIX
+            if (Boolean(ebcdicInput) === false || ebcdicInput.charAt(0) === " "){
+                document.getElementById("asciiOutput").innerHTML = "";
+                }
     let asciiInputFinal = "";
     for(let a = 0; a<ebcdicInput.length ; a++){
         if(ebcdicInput.charAt(a) == "<"){
@@ -745,6 +763,9 @@ let ebcdicArray = [
         function loading_1(){
             let ebcdicInput = $("#asciiText").val();
             //LESS THAN FIX
+            if (Boolean(ebcdicInput) === false || ebcdicInput.charAt(0) === " "){
+                document.getElementById("asciiOutput").innerHTML = "";
+                }
     let asciiInputFinal = "";
     for(let a = 0; a<ebcdicInput.length ; a++){
         if(ebcdicInput.charAt(a) == "<"){
