@@ -5,15 +5,15 @@ body {
 
 /* Import FONTS */
 @font-face {
-    src: url(../Libs/FONTS/PressStart2P-Regular.ttf);
+    src: url(Fonts/PressStart2P-Regular.ttf);
     font-family: pressStart;
 }
 @font-face{
-    src: url(../Libs/FONTS/Jua-Regular.ttf);
+    src: url(Fonts/Jua-Regular.ttf);
     font-family: jua;
 }
 @font-face{
-    src: url(../Libs/FONTS/PTSansCaption-Regular.ttf);
+    src: url(Fonts/PTSansCaption-Regular.ttf);
     font-family: sans;
 }
 
@@ -68,12 +68,12 @@ a{
    border: 5px outset black;
    padding: 2%;
     grid-area: first;
-    background-color: #2f82c6c2;
+    background-color: #b2cfe6a3;
 }
 
 #AnaComp{
     cursor: pointer;
-    background-color: #276ca5ce;
+    background-color: #93bbdce0;
     font-family: sans;
     border: 5px outset black;
     padding: 2%;
@@ -82,7 +82,7 @@ a{
 
 #DigiComp{
     cursor: pointer;
-    background-color: #225580d5;
+    background-color: #6490b3e6;
     font-family: sans;
     border: 5px outset black;
    padding: 2%;
@@ -91,7 +91,7 @@ a{
 
 #Del{
     cursor: pointer;
-    background-color: #184C77;
+    background-color: #4e87b5cc;
     font-family: sans;
     border: 5px outset black;
    padding: 2%;
@@ -100,7 +100,7 @@ a{
 
 #AdapDel{
     cursor: pointer;
-    background-color: #113655;
+    background-color: #3676a9e8;
     font-family: sans;
     border: 5px outset black;
    padding: 2%;
@@ -109,7 +109,7 @@ a{
 
 #diff{
     cursor: pointer;
-    background-color: #0B2132;
+    background-color: #2a5b83;
     font-family: sans;
     border: 5px outset black;
    padding: 2%;
