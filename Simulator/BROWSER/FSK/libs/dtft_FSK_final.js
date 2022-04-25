@@ -137,7 +137,7 @@ margin: {
           },
     
     }
-
+    tModulator = [];
     // GENERATE THE VALUES FOR TRANSMITTED FSK SIGNAL
     let step_mark = Math.round(frequencyMark);
     let step_space = Math.round(frequencySpace);
@@ -156,7 +156,9 @@ margin: {
                     modulator.push(-amplitude);
                 }}
     }
-
+    for(let i = Ts; i<modulator.length ; i++){
+        tModulator.push(i*Ts);
+    }
     //generate the values of t:
 let xValues = [];
 for(let i =0 ; i<=1 ; i+=1/48000){
@@ -215,7 +217,7 @@ for(let k = 0; k<converter_output.length ; k++){
 console.log(endValues)
 //Generate the values for plotly
 let modulatingSignal = [{
-    x: t,
+    x: tModulator,
     y: modulator,
     name: 'Modulating Signal',
     line: {
