@@ -145,13 +145,14 @@
                                             <option value="ASCII">ASCII</option>
                                             <option value="EBCDIC">EBCDIC</option>
                                         </select><br>
-
+                                    <div class="parityHide">
                                     <label id="labelparitySelect">Parity:</label>
                                         <select id="paritySelect" >
                                             <option value="noparity">No Parity</option>
                                             <option value="oddparity">Odd Parity</option>
                                             <option value="evenparity">Even Parity</option>
                                         </select><br>
+                                    </div>
                                 </div> <!-- END asciiChild -->
                             </div> <!-- END transmitter -->
                         <label id= "Input" for="asciiText">Input: </label>
@@ -270,6 +271,20 @@
                }
            })
     });
+
+    //FOR HIDING PARITY
+    // $(".parityHide").hide();
+        $("#transmitSelect").on("change", function(){
+            if($("#transmitSelect").val() == "ASCII"){
+            console.log($("#transmitSelect").val())
+                $(".parityHide").slideDown();
+            }
+                    
+            else if($("#transmitSelect").val() == "EBCDIC"){
+            console.log($("#transmitSelect").val())
+                $(".parityHide").slideUp();
+            }
+            })
    </script>
 
 </body>
